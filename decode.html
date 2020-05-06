@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en-US" manifest="de4js.appcache">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="BbaaM88Az_X9Kkutg_1d0lgK5u9URFdntKd8lB41hLs">
+    <link rel="icon" href="favicon.ico">
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Decode Tools</title>
+    
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1 id="title">Decode Tools</h1>
+            <h2>JavaScript Deobfuscator and Unpacker</h2>
+
+            <section id="downloads">
+                
+                <a href="#" target="_blank" class="btn"><span class="icon"></span>My Web</a>
+            </section>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="main_content">
+            <div class="tabs">
+                <div class="tab active" data-target="String">String</div>
+                <div class="tab" data-target="Local">Local File</div>
+                <div class="tab" data-target="Remote">Remote File</div>
+            </div>
+            <div class="cf"></div>
+            <div class="tabs-contents">
+                <div class="tab-content show" id="contentString">
+                    <textarea id="input" class="content" rows="7" placeholder="Paste code here..."></textarea>
+                </div>
+                <div class="tab-content" id="contentLocal">
+                    <div class="box">
+                        <input type="file" name="file" id="file" class="inputfile" accept="text/javascript,text/plain">
+                        <label for="file" class="read-only">
+                            <span id="fileName"></span>
+                            <strong>Choose a file…</strong>
+                        </label>
+                    </div>
+                    <pre id="renderLocal" class="render read-only"></pre>
+                </div>
+                <div class="tab-content" id="contentRemote">
+                    <form class="form-wrapper cf" id="formRemove">
+                        <input type="url" placeholder="Enter a URL" id="urlRemove" required>
+                        <button type="submit" class="btn" id="submitRemove">Submit</button>
+                    </form>
+                    <small>Cross-origin requests require Access-Control-Allow-Origin header</small>
+                    <pre id="renderRemove" class="render read-only"></pre>
+                </div>
+            </div>
+
+            <div class="config center">
+                <form name="de4js">
+                    <input id="none" class="magic-radio" type="radio" value="" name="encode" checked>
+                    <label for="none">None</label>
+                    
+                        <input id="evalencode" class="magic-radio" type="radio" value="evalencode" name="encode">
+                        <label for="evalencode">Eval</label>
+                    
+                        <input id="arrayencode" class="magic-radio" type="radio" value="arrayencode" name="encode">
+                        <label for="arrayencode">Array</label>
+                    
+                        <input id="_numberencode" class="magic-radio" type="radio" value="_numberencode" name="encode">
+                        <label for="_numberencode">_Number</label>
+                    
+                        <input id="jsfuck" class="magic-radio" type="radio" value="jsfuck" name="encode">
+                        <label for="jsfuck">JSFuck</label>
+                    
+                        <input id="jjencode" class="magic-radio" type="radio" value="jjencode" name="encode">
+                        <label for="jjencode">JJencode</label>
+                    
+                        <input id="aaencode" class="magic-radio" type="radio" value="aaencode" name="encode">
+                        <label for="aaencode">AAencode</label>
+                    
+                        <input id="urlencode" class="magic-radio" type="radio" value="urlencode" name="encode">
+                        <label for="urlencode">URLencode</label>
+                    
+                        <input id="p_a_c_k_e_r" class="magic-radio" type="radio" value="p_a_c_k_e_r" name="encode">
+                        <label for="p_a_c_k_e_r">Packer</label>
+                    
+                        <input id="javascriptobfuscator" class="magic-radio" type="radio" value="javascriptobfuscator" name="encode">
+                        <label for="javascriptobfuscator">JS Obfuscator</label>
+                    
+                        <input id="myobfuscate" class="magic-radio" type="radio" value="myobfuscate" name="encode">
+                        <label for="myobfuscate">My Obfuscate</label>
+                    
+                    <input id="nicify" class="magic-radio" type="radio" value="nicify" name="encode" disabled>
+                    <label for="nicify">
+                        <a href="https://github.com/lelinhtinh/de4js/blob/master/README.md#helper" target="_blank" class="help">Unreadable</a>
+                    </label>
+                </form>
+            </div>
+
+            <div class="center">
+                <button id="clear" class="btn" type="reset">
+                    Clear
+                </button>
+                <button id="auto" class="btn" type="button">
+                    Auto Decode
+                </button>
+            </div>
+
+            <div class="view-wrap">
+                <div class="view-control">
+                    <button id="copyjs" class="btn" type="button">
+                        <img class="btn-icon" src="/assets/icon/copy-document.png" alt="Copy to clipboard">
+                    </button>
+                    <a id="preview" class="btn" type="button" href="#" target="_blank">
+                        <img class="btn-icon" src="/assets/icon/external-link-symbol.png" alt="Open in new tab">
+                    </a>
+                </div>
+                <textarea id="readable"></textarea>
+                <pre id="view" class="hljs"></pre>
+            </div>
+        </section>
+    </div>
+
+    <script type="text/javascript" src="/assets/js/lib/clipboard-js/clipboard.min.js"></script>
+    <script src="/assets/js/main.js" type="text/javascript"></script>
+</body>
+
+</html>
