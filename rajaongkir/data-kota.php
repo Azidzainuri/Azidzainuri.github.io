@@ -12,7 +12,7 @@ switch ($_GET['q']) {
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => "GET",
     CURLOPT_HTTPHEADER => array(
-      "c1e8bbda1f17c1e7f5d60d1c2e4cb061"
+      "key: c1e8bbda1f17c1e7f5d60d1c2e4cb061"
     ),
   ));
   $response = curl_exec($curl);
@@ -38,7 +38,7 @@ switch ($_GET['q']) {
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => "GET",
     CURLOPT_HTTPHEADER => array(
-      "c1e8bbda1f17c1e7f5d60d1c2e4cb061"
+      "key: c1e8bbda1f17c1e7f5d60d1c2e4cb061"
     ),
   ));
   $response = curl_exec($curl);
