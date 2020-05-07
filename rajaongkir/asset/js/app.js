@@ -12,7 +12,7 @@ $( document ).ready(function() {
     $.ajax({
       type: "GET",
       dataType: "html",
-      url: "https://rawcdn.githack.com/Azidzainuri/Azidzainuri.github.io/b02340f4b9bf8e07b36654852dd475ae42c48c52/rajaongkir/data-kota.php?q=kotaasal",
+      url: "//pemainkode.byethost31.com/royproweb/cek_kabupaten.php?q=kotaasal",
       success: function(msg){
       $("select#kota_asal").html(msg);                                                     
       }
@@ -21,7 +21,7 @@ $( document ).ready(function() {
  $.ajax({
       type: "GET",
       dataType: "html",
-      url: "https://rawcdn.githack.com/Azidzainuri/Azidzainuri.github.io/b02340f4b9bf8e07b36654852dd475ae42c48c52/rajaongkir/data-kota.php?q=kotatujuan",
+      url: "//pemainkode.byethost31.com/royproweb/cek_kabupaten.php?q=kotatujuan",
       success: function(msg){
       $("select#kota_tujuan").html(msg);                                                     
       }
@@ -30,7 +30,7 @@ $( document ).ready(function() {
    $("#ongkir").submit(function(e) {
       e.preventDefault();
       $.ajax({
-          url: 'https://rawcdn.githack.com/Azidzainuri/Azidzainuri.github.io/b02340f4b9bf8e07b36654852dd475ae42c48c52/rajaongkir/cek-ongkir.php',
+          url: 'http://pemainkode.byethost31.com/royproweb/cek_ongkir.php',
           type: 'post',
           data: $( this ).serialize(),
           success: function(data) {
