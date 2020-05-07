@@ -12,7 +12,7 @@ $( document ).ready(function() {
     $.ajax({
       type: "GET",
       dataType: "html",
-      url: "https://rawcdn.githack.com/Azidzainuri/Azidzainuri.github.io/2974d927579f119dc65dc2afc1a9ab4e493d43ad/rajaongkir/data-kota.php?q=kotaasal",
+      url: "https://rawcdn.githack.com/Azidzainuri/Azidzainuri.github.io/b02340f4b9bf8e07b36654852dd475ae42c48c52/rajaongkir/data-kota.php?q=kotaasal",
       success: function(msg){
       $("select#kota_asal").html(msg);                                                     
       }
@@ -21,7 +21,7 @@ $( document ).ready(function() {
  $.ajax({
       type: "GET",
       dataType: "html",
-      url: "https://rawcdn.githack.com/Azidzainuri/Azidzainuri.github.io/2974d927579f119dc65dc2afc1a9ab4e493d43ad/rajaongkir/data-kota.php?q=kotatujuan",
+      url: "https://rawcdn.githack.com/Azidzainuri/Azidzainuri.github.io/b02340f4b9bf8e07b36654852dd475ae42c48c52/rajaongkir/data-kota.php?q=kotatujuan",
       success: function(msg){
       $("select#kota_tujuan").html(msg);                                                     
       }
@@ -30,7 +30,7 @@ $( document ).ready(function() {
    $("#ongkir").submit(function(e) {
       e.preventDefault();
       $.ajax({
-          url: 'https://rawcdn.githack.com/Azidzainuri/Azidzainuri.github.io/2974d927579f119dc65dc2afc1a9ab4e493d43ad/rajaongkir/cek-ongkir.php',
+          url: 'https://rawcdn.githack.com/Azidzainuri/Azidzainuri.github.io/b02340f4b9bf8e07b36654852dd475ae42c48c52/rajaongkir/cek-ongkir.php',
           type: 'post',
           data: $( this ).serialize(),
           success: function(data) {
