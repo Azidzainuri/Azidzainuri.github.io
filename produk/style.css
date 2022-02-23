@@ -92,3 +92,20 @@ header {
 .menu-kategori .button .line3 {
     top: 20px;
 }
+#main-produk {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-rows: 1fr;
+    grid-template-rows: 1fr;
+    -ms-grid-columns: (1fr)[8] (minmax(48px,1fr))[4];
+    grid-template-columns: repeat(8,1fr) repeat(4,minmax(48px,1fr));
+    max-width: 800px;
+    margin: 0 auto;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 12;
+    grid-column: 1/span 12;
+    -ms-grid-row: 2;
+    grid-row-start: 2;
+    padding-top: 75px;
+    padding-bottom: 25px;
+}
