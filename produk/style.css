@@ -38,8 +38,8 @@ header {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    margin: 5px 25px;
-    padding: 0;
+    margin: 0 25px;
+    padding: 8px 0;
     width: calc(100% - 50px);
     
 }
@@ -67,6 +67,7 @@ header {
     width: 25px;
     height: 25px;
     position: absolute;
+    right: 25px;
     cursor: pointer;
     z-index: 2;
     outline: 0;
