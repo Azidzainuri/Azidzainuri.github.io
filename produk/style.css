@@ -108,6 +108,7 @@ header {
     grid-row-start: 2;
     padding-top: 75px;
     padding-bottom: 25px;
+    background: #ffffff;
 }
 .main-produk-wrap {
     -ms-grid-column: 1;
@@ -115,4 +116,97 @@ header {
     grid-column: 1/span 12;
     -ms-grid-row: 2;
     grid-row-start: 2;
+}
+.main-produk-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+}
+.main-produk-container .post {
+    position: relative;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 33.33%;
+    flex: 1 1 33.33%;
+    max-width: 33.33%;
+    min-width: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 25px;
+    padding: 8px;
+}
+.main-produk-container .post .post-image {
+    position: relative;
+    margin-bottom: 15px;
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 0;
+    padding-top: 100%;
+}
+.main-produk-container .post .post-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.main-produk-container .post .post-image .post-status {
+    position: absolute;
+    top: 0;
+    background: #ffffff;
+    color: #222222;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid #eee;
+    border-radius: 4px 0 6px 0;
+    z-index: 3;
+}
+.main-produk-container .post .post-meta {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    padding: 5px;
+    width: calc(100% - 10px);
+    overflow: hidden;
+}
+.main-produk-container .post .post-meta .detail-produk {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 0;
+}
+.main-produk-container .post .post-meta .detail-produk a {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    padding: 0;
+    background: #e93314;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 12px;
+    margin-top: 10px;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+.main-produk-container .post .post-meta .detail-produk a:hover {
+    background: #222222;
+    color: #ffffff;
 }
