@@ -109,3 +109,10 @@ header {
     padding-top: 75px;
     padding-bottom: 25px;
 }
+.main-produk-wrap {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 12;
+    grid-column: 1/span 12;
+    -ms-grid-row: 2;
+    grid-row-start: 2;
+}
