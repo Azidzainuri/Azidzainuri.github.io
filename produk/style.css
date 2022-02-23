@@ -15,6 +15,16 @@ header {
     z-index: 99;
 }
 .header-wrap {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 800px;
+    height: 55px;
+    background-color: #ffffff;
+    border-bottom: 1px solid rgba(0,0,0,.09);
+    box-shadow: 0 2px 10px rgb(0 0 0 / 9%);
+}
+.header-container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -28,14 +38,10 @@ header {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    margin: 0 auto;
-    position: relative;
-    width: 100%;
-    max-width: 800px;
-    height: 55px;
-    background-color: #ffffff;
-    border-bottom: 1px solid rgba(0,0,0,.09);
-    box-shadow: 0 2px 10px rgb(0 0 0 / 9%);
+    margin: 5px 25px;
+    padding: 0;
+    width: calc(100% - 50px);
+    
 }
 .header-wrap a, .menu-kategori {
     display: -webkit-box;
