@@ -215,10 +215,9 @@ $(".keranjang-kosong").text("keranjang Anda masih kosong!");
                         if (addItem === false) {
                             return false;
                         } else {
-                     $(".belibeli-background-transparent-box").slideToggle("fast");
-                     $(".tombol-bukatutup").toggleClass("active");
-                     $("#kurir").val("default");
-                     $("#pembayaran").val("default");
+                     $(".box-data-produk").slideToggle("normal");
+                     //$("#kurir").val("default");
+                     //$("#pembayaran").val("default");
                        }
                     }
 
@@ -691,8 +690,7 @@ $(".keranjang-kosong").text("keranjang Anda masih kosong!");
                         label,
                         x,
                         xlen;
-                       $(".ck-btn,.harga-total,#total-harga").hide();
-                       $(".keranjang-kosong").show();
+                       $(".box-harga-produk,.box-checkout").hide();
 
                     container.html(" ").append(cart_container);
 
@@ -730,8 +728,8 @@ $(".keranjang-kosong").text("keranjang Anda masih kosong!");
                         klass,
                         content,
                         cell;
-                    $(".empty-cart,.keranjang-kosong").hide();
-                    $(".ck-btn,.harga-total,#total-harga").show();
+                    $(".empty-cart").hide();
+                    $(".box-harga-produk,.box-checkout").show();
 
                     container.append(row);
 
