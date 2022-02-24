@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta content="#0095da" name="theme-color">
+    <meta content="#0095da" name="msapplication-navbutton-color">
+    <meta content="Product Example" name="keywords">
+    <title>Product Example</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header>
+      <div class="header-wrap">
+        <div class="header-container">
+        <a href="/produk"><img src="https://1.bp.blogspot.com/-8sjLbIfqqqY/Xu3YjkEPyzI/AAAAAAAABkE/32P6pukxXVkUCpec7Ty4-08aLF214VW6wCK4BGAYYCw/w300/sayuean.png" width="300" height="80" alt="title produk"></a>
+        <div class="menu-kategori">
+          <div class="button">
+            <span class="line1"></span>
+            <span class="line2"></span>
+            <span class="line3"></span>
+          </div>
+        </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section id="main-produk">
+        <div class="main-produk-wrap">
+          <div class="box-cek-driver">
+            <div class="button-tab">
+              <button class="tab-opsi active" name="goride" data="1000">GoRide🛵</button>
+              <button class="tab-opsi" name="gocar" data="1200">GoCar🚕</button>
+              <button class="tab-opsi" name="delivery" data="1500">Delivery📦</button>
+            </div>
+            <div class="form-lokasi">
+              <form>
+                <div class="data-form">
+                  <input class="validate" name="lokasi penjual" id="start" placeholder="lokasi awal" ruquered type="text">
+                </div>
+                <div class="data-form">
+                  <input class="validate" name="lokasi tujuan" id="end" placeholder="lokasi tujuan" ruquered type="text">
+                </div>
+                <div class="data-button">
+                  <input class="validate" name="pesan sekarang" id="pesan-btn" value="cek lokasi" type="submit">
+                </div>
+              </form>
+            </div>
+            <div id="map"></div>
+            <div id="detail">
+              <div class="detail-wrap">
+                <table>
+                        <tr>
+                            <th style="color:grey">Opsi</th>
+                            <th>:</th>
+                            <td id="option"></td>
+                        </tr>
+                        <tr>
+                            <th style="color:grey">Jarak</th>
+                            <th>:</th>
+                            <td id="distance"></td>
+                        </tr>
+                        <tr>
+                            <th style="color:grey">Durasi</th>
+                            <th>:</th>
+                            <td id="duration"></td>
+                        </tr>
+                        <tr>
+                            <th style="color:grey">Harga</th>
+                            <th>:</th>
+                            <td id="price"></td>
+                        </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+    </footer>
+    <script src="../script.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA93mcV_umWpfWf4-d1u_Tc1ErOYsGAW9Y&libraries=places"></script>
+    <script>
+var map;
+var directionsService = new google.maps.DirectionsService();
+var directionsDisplay = new google.maps.DirectionsRenderer();
+// var harga = 1;
+
+map = new google.maps.Map(document.getElementById('map'), {
+    center: {
+        lat: -6.5057686,
+        lng: 107.9997338
+    },
+    zoom: 9
+});
+directionsDisplay.setMap(map);
+
+var start = document.getElementById('start');
+var searchStart = new google.maps.places.SearchBox(start);
+var end = document.getElementById('end');
+var searchEnd = new google.maps.places.SearchBox(end);
+
+var detail = document.getElementById('detail');
+
+var pesanStart = document.getElementById('pesan-btn');
+
+function findRoute(harga) {
+    var startAddress = start.value;
+    var endAddress = end.value;
+    var request = {
+        origin: startAddress,
+        destination: endAddress,
+        travelMode: 'DRIVING'
+    };
+    function round(value, precision) {
+      var multiplier = Math.pow(10, precision || 0);
+      return Math.round(value * multiplier) / multiplier;
+    }
+    directionsService.route(request, function (result, status) {
+        if (status == 'OK') {
+            directionsDisplay.setDirections(result);
+            // console.log(result);
+            // console.log(result.routes[0].legs[0].distance.text);
+            var resetKM = result.routes[0].legs[0].distance.value/1000;
+            var km = round(resetKM, 0);
+            var opsi = document.querySelector('.tab-opsi.active').innerHTML;
+            document.getElementById('option').innerHTML = opsi;
+            document.getElementById('distance').innerHTML = km + " km";
+            document.getElementById('duration').innerHTML = result.routes[0].legs[0].duration.text;
+            document.getElementById('price').innerHTML = angkaToRp(km * parseInt(harga));
+      console.log(km);
+      console.log(parseInt(harga));
+            detail.style.display = 'block';
+            document.getElementById('pesan-btn').style.display = 'none';
+        } else {
+            detail.style.display = 'none';
+            alert('Petunjuk arah gagal dimuat, masukkan alamat yang benar!');
+        }
+    });
+}
+
+pesan.addEventListener("click", function (event) {
+    if (start.value.trim() != "" && end.value.trim() != "") {
+        event.preventDefault();
+        var harga = document.querySelector(".tab-opsi.active").getAttribute("data");
+        findRoute(harga);
+    }
+});     
+var tabButton = document.querySelectorAll('.tab-opsi');
+for (var i = 0; i < tabButton.length; i++) {
+   tabButton[i].addEventListener( "click", function() {
+      document.querySelector('.tab-opsi.active').classList.remove('active');
+      this.classList.toggle("active");
+      detail.style.display = 'none';
+   });
+}                                      
+</script>
+  </body>
