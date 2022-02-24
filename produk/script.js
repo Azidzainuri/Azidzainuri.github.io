@@ -75,7 +75,7 @@ $(document).ready(function ($) {
         $(".kategori-dropdown").toggleClass("active");
     });
     $(".box-checkout .kembali,.tombol-close").click(function () {
-        $(".belibeli-background-transparent-box").slideToggle("normal");
+        $(".box-data-produk").slideToggle("normal");
         //$("#kurir").val("default");
         //$("#pembayaran").val("default");
         return false;
