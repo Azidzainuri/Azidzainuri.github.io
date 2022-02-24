@@ -452,7 +452,7 @@ header {
     top: 50%;
     left: 50%;
     padding: 0;
-    padding-top: 10px;
+    padding-top: 30px;
     margin: auto;
     transform: translate(-50%,-45%);
     background-color: #fff;
@@ -488,9 +488,8 @@ header {
     max-height: 300px;
     overflow: hidden;
     overflow-y: auto;
-    margin-bottom: 20px;
-    padding: 2px 10px;
-    margin-top: 30px;
+    padding: 0;
+    margin: 0;
 }
 .empty-cart {
     position: relative;
@@ -579,7 +578,7 @@ header {
     overflow: hidden;
     font-size: 12px;
     line-height: 1.5;
-    width: calc(100% - 16px);
+    width: calc(100% - 26px);
     font-weight: 700;
     text-align: left;
     display: block;
