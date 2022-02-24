@@ -50,6 +50,7 @@ $(document).on("click", "#chat-penjual", function () {
 });
 
 // Notif Informasi
+var timeout_notif;
 function informasi(o) {
     $("#informasi").remove(),
         window.clearTimeout(timeout_notif),
