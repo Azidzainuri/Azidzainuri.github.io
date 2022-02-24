@@ -49,7 +49,27 @@ $(document).on("click", "#chat-penjual", function () {
     window.open(a, "_blank");
 });
 
+// Notif Informasi
+function informasi(o) {
+    $("#informasi").remove(),
+        window.clearTimeout(timeout_notif),
+        $("body").append('<div id="informasi"></div>'),
+        $("#informasi").text(o).fadeIn(100),
+        (timeout_notif = window.setTimeout(function () {
+            $("#informasi").fadeOut(1e3),
+                setTimeout(function () {
+                    $("#informasi").remove();
+                }, 1e3);
+        }, 4e3));
+}
+
 // Data Simplecart
+var cart_kosong = '<div class="empty-cart"><svg fill="currentColor" viewBox="0 0 480 480"><path d="m411.9 436.48-24.36-276c-1.83-20.79-18.96-36.48-39.84-36.48-4.797 0-8.7 3.9-8.7 8.7v43.03c0 4.26-3.22 7.98-7.47 8.25-4.66.3-8.53-3.39-8.53-7.98v-93c0-45.77-37.23-83-83-83s-83 37.23-83 83v41h-24.7c-20.88 0-38.01 15.69-39.84 36.48l-24.36 276c-2.05 23.325 16.343 43.52 39.85 43.52h264.1c23.51 0 41.9-20.198 39.85-43.52zm-217.9-9.48h-58c-4.418 0-8-3.582-8-8s3.582-8 8-8h58c4.418 0 8 3.582 8 8s-3.582 8-8 8zm0-40h-58c-4.418 0-8-3.582-8-8s3.582-8 8-8h58c4.418 0 8 3.582 8 8s-3.582 8-8 8zm113-263h-109.3c-4.8 0-8.7 3.9-8.7 8.7v43.03c0 4.26-3.22 7.98-7.47 8.25-4.66.3-8.53-3.39-8.53-7.98v-93c0-36.94 30.06-67 67-67s67 30.06 67 67z"></svg><span class="center">'+"Keranjang Anda masih kosong"+'</span></div>';
+var tombolMinus = '<svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M19,13H5V11H19V13Z"></path></svg>';
+var tombolPlus = '<svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"></path></svg>';
+var tombolRemove = '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="currentColor" d="M21.03,3L18,20.31C17.83,21.27 17,22 16,22H8C7,22 6.17,21.27 6,20.31L2.97,3H21.03M5.36,5L8,20H16L18.64,5H5.36M9,18V14H13V18H9M13,13.18L9.82,10L13,6.82L16.18,10L13,13.18Z"></path></svg>';
+$(".keranjang-kosong").text("keranjang Anda masih kosong!");
+
 (function (window, document) {
     /*global HTMLElement */
 
@@ -1074,19 +1094,10 @@ $(document).on("click", "#chat-penjual", function () {
 
             simpleCart.bind("beforeAdd", function (item) {
               if (simpleCart.has(item)) {
-                    $(".info-write").text("Produk ini sudah tersedia di keranjang Anda");
-                    $("#informasi").show();
-                    $(".info-button-ok").click(function () {
-                        $("#informasi").hide();
-                        return false;
-                    });
+                    informasi("Produk ini sudah tersedia dikeranjang Anda");
                     return false;
                 } else {
-                    var judul = $("#content-wrap .content-single .post-outer-single .post-title").text();
-                    var kategori = $(".post-info .label-info.post a").text();
-                    var idProduk = $(".post-body").attr("id").split("post-body-").join("");
-                    var hargaInPost = $(".post-body").find(".item_price").attr("data-price");
-                    var buttonfbq = false;
+                    informasi("Produk Berhasil Ditambahkan");
                 }
             });
 
