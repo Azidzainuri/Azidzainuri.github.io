@@ -391,5 +391,48 @@ header {
     outline: 0;
     cursor: pointer;
 }
-
+.inner-post-button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    margin: 20px 0;
+    padding-left: 0;
+    border-radius: 4px 4px 0 0;
+    border: 1px solid #eee;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    text-align: center;
+    gap: 10px;
+}
+.inner-post-button a {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 calc(50% - 10px);
+    flex: 1 1 calc(50% - 10px);
+    max-width: calc(50% - 10px);
+    min-width: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background: #222222;
+    box-sizing: border-box;
+    display: block;
+    padding: 15px 0;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    list-style: none;
+    text-decoration: none;
+    border-radius: 12px;
+}
+.inner-post-button .beli-produk {
+    background: #e93314;
+}
 
