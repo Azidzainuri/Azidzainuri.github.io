@@ -1784,6 +1784,9 @@ function findRoute(harga) {
 	    $("#option").html(opsi);
             $("#distance").html(km + " Km");
 	    $("#duration").html(result.routes[0].legs[0].duration.text);
+		console.log(harga);
+		console.log(km*harga);
+		console.log(angkToRp(km*harga);
 	    $("#price").html(angkaToRp(km * parseInt(harga)));
             $("#detail").show();
             var kurir = opsi;
@@ -1800,6 +1803,7 @@ function findRoute(harga) {
 			    "lokasi": lokasi
 		    }
 	    ];
+		console.log(itemArray);
 	    localStorage.setItem('itemUser', JSON.stringify(itemArray));
         } else {
             $("#detail").hide();
