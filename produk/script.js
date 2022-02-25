@@ -86,6 +86,11 @@ $(document).ready(function ($) {
     $(".tombol-home").click(function () {
         window.location.href = urlHome;
     });
+    $(".button-tab button").on("click", function (a) {
+        a.preventDefault();
+        $(this).addClass("active");
+        $(this).siblings().removeClass("active");
+    });	
 });
 
 // Data Simplecart
@@ -1727,6 +1732,63 @@ simpleCart({
         return;
     },
 });
+
+var map;
+var directionsService = new google.maps.DirectionsService();
+var directionsDisplay = new google.maps.DirectionsRenderer();
+var cekMap = document.getElementById("map");
+if (cekMap != null) {
+	map = new google.maps.Map(document.getElementById('map'), {
+		center: {
+			lat: -6.5057686,
+			lng: 107.9997338
+		},
+		zoom: 9
+	});
+	directionsDisplay.setMap(map);
+	//var start = document.getElementById('start');
+	//var searchStart = new google.maps.places.SearchBox(start);
+	var end = document.getElementById('end');
+	var searchEnd = new google.maps.places.SearchBox(end);
+}
+function findRoute(harga) {
+    var startAddress = $("#start").val();
+    var endAddress = $("#end").val();
+    var request = {
+        origin: startAddress,
+        destination: endAddress,
+        travelMode: 'DRIVING'
+    };
+    function round(value, precision) {
+      var multiplier = Math.pow(10, precision || 0);
+      return Math.round(value * multiplier) / multiplier;
+    }
+    directionsService.route(request, function (result, status) {
+        if (status == 'OK') {
+            directionsDisplay.setDirections(result);
+            // console.log(result);
+            // console.log(result.routes[0].legs[0].distance.text);
+            var resetKM = result.routes[0].legs[0].distance.value/1000;
+            var km = round(resetKM, 0);
+            var opsi = $(".tab-opsi.active").text();
+	    $("#option").html(opsi);
+            $("#distance").html(km + " Km");
+	    $("#duration").html(result.routes[0].legs[0].duration.text);
+	    $("#price").html(angkaToRp(km * parseInt(harga)));
+            $("#detail").show();
+        } else {
+            $("#detail").hide();
+            informasi("Petunjuk arah gagal dimuat, masukkan alamat yang benar!");
+        }
+    });
+}
+function lihatDetail(event){
+	event.preventDefault();
+	var harga = $(".tab-opsi.active").attr("data");
+	findRoute(harga);
+}
+$("#end").change(lihatDetail);    
+
 simpleCart({
 	cartColumns: [
 { attr: "thumb", label: false, view: "image" },
@@ -1738,8 +1800,7 @@ simpleCart({
 { attr: "quantity", label: false, view: "jumlah" },
 { view: "increment", label: false },
 { attr: "total", label: false, view: "currency" },
-{ attr: "link", label: false, view: "linkproduk" },
-{ attr: "nomor", label: false, view: "nomor" },            
+{ attr: "link", label: false, view: "linkproduk" },           
 	],
 	currency: "IDR",
 });
