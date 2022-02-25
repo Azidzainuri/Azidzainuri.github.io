@@ -869,7 +869,7 @@ header {
     font-weight: 600;
     color: #ff0000;
 }
-.form-checkout select {
+#pilihan-kurir select, #lokasi-cod select, .form-checkout select {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
