@@ -11,6 +11,23 @@ var minimumVoucher = "100000";
 var chatpenjual = "Halo, saya mau nanya produk";
 $(".inner-produk-header .item_link").text(url_string);
 
+// Ongkir COD
+var ongkirCOD = [
+	{"nama":"Desa A", "harga":"10000"},
+	{"nama":"Desa C", "harga":"11000"},
+	{"nama":"Desa D", "harga":"12000"},
+	{"nama":"Desa E", "harga":"13000"},
+	{"nama":"Desa F", "harga":"14000"},
+	{"nama":"Desa G", "harga":"15000"},
+	{"nama":"Desa H", "harga":"16000"},
+	];
+var a;
+var selectCOD = '<option value="default">Pilih Daerah</option>';
+for (a = 0; a < ongkirCOD.length; a++) {
+selectCOD += '<option value="'+ongkirCOD[a].harga+'">'+ongkirCOD[a].nama+'</option>';
+}
+$("#lokasi-cod").html(selectCOD);
+
 //Format Rupiah
   function angkaToRp(angka) {
     var rupiah = '';    
@@ -43,12 +60,11 @@ $(".inner-produk-header .item_link").text(url_string);
   }
 
 // Chat Penjual
-$(document).on("click", "#chat-penjual", function () {
+$(document).on("click", ".chat-penjual", function () {
     var e = "https://api.whatsapp.com/send";
-    var n = $(".post-title.item_name.entry-title").text(),
-        m = $(".post-content span.hapus.item_link").text(),
-        x = $(".nomor-inpost").text(),
-        a = e + "?phone=" + x + "&text=" + chatpenjual + " *" + n + "* %0A%0ALink Produk: " + m;
+    var n = $(".inner-produk-header .item_name").text(),
+        m = $(".hide.item_link").text(),
+        a = e + "?phone=" + hpAdmin + "&text=" + chatpenjual + " *" + n + "* %0A%0ALink Produk: " + m;
     window.open(a, "_blank");
 });
 
@@ -85,7 +101,17 @@ $(document).ready(function ($) {
         $(".belibeli-produk-share-icon").toggleClass("aktif");
     });
     $(".box-checkout .checkout").click(function () {
-        window.location.href = urlCheckout;
+	    var cekKurir = $("#cek-kurir").val();
+	    if (cekKurir == "default") {
+		    informasi("Silahkan pilih kurir sebelum klik Checkout");
+		    return false;
+	    } else {
+		    if (cekKurir == "cod") {
+			    window.location.href = urlCOD;
+		    } else if (cekKurir =="delivery") {
+			    window.location.href = urlDelivery;
+		    }
+	    }
     });
     $(".form-checkout .tombol-close").click(function () {
         window.location.href = urlHome + "/produk";
@@ -1827,14 +1853,13 @@ function findRoute(event) {
             var km = round(resetKM, 0);
             var opsi = $(".tab-opsi.active").text();
 	    $("#option").html(opsi);
-            $("#distance").html(km + " Km");
+            //$("#distance").html(km + " Km");
 	    $("#duration").html(result.routes[0].legs[0].duration.text);
 		console.log(event);
 	    $("#price").html(angkaToRp(km * parseInt(event)));
             $("#detail").show();
             var kurir = opsi;
-            var jarak = km + " Km";
-	    var waktu = result.routes[0].legs[0].duration.text;
+            //var jarak = km + " Km";
 	    var harga = km * parseInt(event);
             var lokasiAsal = $("#start").val();
             var lokasiTujuan = $("#end").val();
@@ -1842,8 +1867,6 @@ function findRoute(event) {
 	    itemArray = [
 		    {
 			    "kurir": kurir,
-			    "jarak": jarak,
-			    "waktu": waktu,
 			    "harga": harga,
 			    "lokasiasal": lokasiAsal,
 			    "lokasitujuan": lokasiTujuan,
@@ -1863,7 +1886,43 @@ function lihatDetail(){
 	console.log(price);
 	findRoute(price);
 }
-$("#end").change(lihatDetail); 
+$("#end").change(lihatDetail);
+
+//Untuk COD
+$("#lokasi-cod").change(tampilkanCOD);
+function tampilkanCOD() {
+	var alamat = $("#end").val();
+	var daerah = $("#lokasi-cod").val()
+	if (alamat == ""){
+		informasi("Alamat Anda Diperlukan");
+		$("#end").focus();
+		return false;
+	} else if (daerah == "default"){
+		informasi("Pilih Daerah untuk menentukan ongkos kirim");
+		return false;
+	} else {
+		var kurir = "COD - " + $("#lokasi-cod :selected").text();
+		var harga = $("#lokasi-cod :selected").val();
+                var lokasiAsal = $("#start").val();
+		var lokasiTujuan = $("#end").val();
+		var toko = $("#toko").text();
+		$("#option").html(kurir);
+		$("#price").html(harga);
+		$("#alamat").html(lokasiTujuan);
+                itemArray = [
+			{
+			    "kurir": kurir,
+			    "harga": harga,
+			    "lokasiasal": lokasiAsal,
+			    "lokasitujuan": lokasiTujuan,
+			    "toko": toko
+			}
+		];
+		console.log(itemArray);
+		localStorage.setItem('itemUser', JSON.stringify(itemArray));		
+		return false;
+	}
+}
 
 // Data Tersimpan Setelah Pilih Lokasi
     let itemArray = localStorage.getItem('itemUser') ? JSON.parse(localStorage.getItem('itemUser')) : [];
@@ -1872,8 +1931,7 @@ $("#end").change(lihatDetail);
     let hasil = data[0];
   if (hasil != undefined){
     var dataKurir = hasil.kurir;
-    var dataJarak = hasil.jarak;
-    var dataWaktu = hasil.waktu;
+    //var dataJarak = hasil.jarak;
     var dataHarga = hasil.harga;
     var dataLokasiasal = hasil.lokasiasal;
     var dataLokasitujuan = hasil.lokasitujuan;
@@ -1882,7 +1940,7 @@ $("#end").change(lihatDetail);
     $(".data-lokasi-asal").html(dataLokasiasal);
     $(".data-lokasi-tujuan").html(dataLokasitujuan);
     $(".data-kurir").html(dataKurir);
-    $(".data-jarak").html(dataJarak);
+    //$(".data-jarak").html(dataJarak);
     $(".data-ongkos").html(angkaToRp(dataHarga));
     simpleCart({
 	    shippingCustom: function () {
@@ -1940,7 +1998,7 @@ if (urlHome + urlPathname == urlForm){
 		   var itemProduk = cartItem_wa;
 		   var total = $("#totalharga").text();
 		   var ongkir = $(".data-ongkos").text();
-		   var jarak = $(".data-jarak").text();
+		   //var jarak = $(".data-jarak").text();
 		   var grandTotal = $(".total-belanja").text();
 		   var catatan = $(".data-catatan").val();
 		   var wa = "";
@@ -1959,7 +2017,7 @@ if (urlHome + urlPathname == urlForm){
 		   wa += "========================" + "%0A";
 		   wa += itemProduk;
 		   wa += "========================" + "%0A";
-		   wa += "*Jarak :* " + jarak + "%0A";
+		   //wa += "*Jarak :* " + jarak + "%0A";
 		   wa += "*Ongkos Kirim :* " + ongkir + "%0A";
 		   wa += "*Total Harga :* " + total + "%0A";
 		   wa += "*Total Pembayaran :* " + grandTotal + "%0A";
