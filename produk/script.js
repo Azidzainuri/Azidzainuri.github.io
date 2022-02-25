@@ -1142,7 +1142,7 @@ $(".keranjang-kosong").text("keranjang Anda masih kosong!");
                 var splitToko = resetToko.split(",");
                 var arrayToko = [...new Set(splitToko)];
                 var tokoUtama = arrayToko[0];
-                var itemToko = $(".nomor-inpost").text();		    
+                var itemToko = $(".post-meta-top .post-author").text();		    
                if (simpleCart.has(item)) {
                     informasi("Produk ini sudah tersedia dikeranjang Anda");
                     return false;
