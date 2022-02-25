@@ -1883,7 +1883,7 @@ if (urlHome + urlPathname == urlForm){
                    });
 		   var nama = $(".data-nama").val();
 		   var nomor = $(".data-nomor").val();
-		   var alamat = $("data-lokasi-tujuan").text();
+		   var alamat = $(".data-lokasi-tujuan").text();
 		   var kurir = $(".data-kurir").text();
 		   var pembayaran = $(".data-pembayaran :selected").val();
 		   var itemProduk = cartItem_wa;
@@ -1902,13 +1902,17 @@ if (urlHome + urlPathname == urlForm){
 		   wa += "*Pembayaran :* " + pembayaran + "%0A" + "%0A";
 		   wa += "*DETAIL PRODUK*" + "%0A";
 		   wa += "========================" + "%0A";
-		   wa += itemProduk + "%0A";
+		   wa += itemProduk;
 		   wa += "========================" + "%0A";
 		   wa += "*Jarak :* " + jarak + "%0A";
 		   wa += "*Ongkos Kirim :* " + ongkir + "%0A";
 		   wa += "*Total Harga :* " + total + "%0A";
 		   wa += "*Total Pembayaran :* " + grandTotal + "%0A";
 		   wa += "========================";
+		   if (catatan != "") {
+			   wa += "%0A" + "*Catatan :* " + catatan + "%0A";
+			   wa += "========================";
+		   }
 		   var walink = "https://api.whatsapp.com/send";
 		   var checkoutWA = walink + "?phone=" + hpAdmin + "&text=" + wa;
 		   window.open(checkoutWA,'_blank');
