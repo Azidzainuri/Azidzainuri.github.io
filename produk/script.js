@@ -90,6 +90,8 @@ $(document).ready(function ($) {
         a.preventDefault();
         $(this).addClass("active");
         $(this).siblings().removeClass("active");
+	$("#end").val("");
+	$("#detail").hide();
     });	
 });
 
