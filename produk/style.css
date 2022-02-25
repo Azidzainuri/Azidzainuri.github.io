@@ -681,24 +681,17 @@ header {
 .button-tab button {
     position: relative;
     background: transparent;
-    color: #222222;
+    color: #a7a1a1;
     padding: 5px 10px;
     margin-bottom: 0;
     border: 0;
     outline: 0;
-    border-bottom: 1px solid #222222;
+    border-bottom: 1px solid #a7a1a1;
     cursor: pointer;
 }
-.button-tab button {
-    position: relative;
-    background: transparent;
+.button-tab button.tab-opsi.active {
     color: #222222;
-    padding: 5px 10px;
-    margin-bottom: 0;
-    border: 0;
-    outline: 0;
     border-bottom: 1px solid #222222;
-    cursor: pointer;
 }
 .form-lokasi {
     position: fixed;
