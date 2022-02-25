@@ -7,6 +7,7 @@ var hpAdmin = "6289677337414";
 var formVoucher = "toko:20000";
 var minimumVoucher = "100000";
 var chatpenjual = "Halo, saya mau nanya produk";
+$(".inner-produk-header .item_link").text(url_string);
 
 //Format Rupiah
   function angkaToRp(angka) {
@@ -1784,6 +1785,21 @@ function findRoute(harga) {
 	    $("#duration").html(result.routes[0].legs[0].duration.text);
 	    $("#price").html(angkaToRp(km * parseInt(harga)));
             $("#detail").show();
+            var kurir = opsi;
+            var jarak = km + " Km";
+	    var waktu = result.routes[0].legs[0].duration.text;
+	    var harga = km * parseInt(harga);
+            var lokasi = $("#end").val();
+	    itemArray = [
+		    {
+			    "kurir": kurir,
+			    "jarak": jarak,
+			    "waktu": waktu,
+			    "harga": harga,
+			    "lokasi": lokasi
+		    }
+	    ];
+	    localStorage.setItem('itemUser', JSON.stringify(itemArray));
         } else {
             $("#detail").hide();
             informasi("Petunjuk arah gagal dimuat, masukkan alamat yang benar!");
@@ -1795,8 +1811,20 @@ function lihatDetail(event){
 	var harga = $(".tab-opsi.active").attr("data");
 	findRoute(harga);
 }
-$("#end").change(lihatDetail);    
+$("#end").change(lihatDetail); 
 
+// Data Tersimpan Setelah Pilih Lokasi
+    let itemArray = localStorage.getItem('itemUser') ? JSON.parse(localStorage.getItem('itemUser')) : [];
+    localStorage.setItem('itemUser', JSON.stringify(itemArray));
+    const data = JSON.parse(localStorage.getItem('itemUser'));
+    let hasil = data[0];
+  if (hasil != undefined){
+    var dataKurir = hasil.kurir;
+    var dataJarak = hasil.jarak;
+    var dataWaktu = hasil.waktu;
+    var dataHarga = hasil.harga;
+    var dataLokasi = hasil.lokasi;
+  }
 simpleCart({
 	cartColumns: [
 { attr: "thumb", label: false, view: "image" },
