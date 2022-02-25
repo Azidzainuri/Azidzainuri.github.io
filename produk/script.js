@@ -1948,8 +1948,8 @@ if (urlHome + urlPathname == urlForm){
 		   var wa = "";
 		   wa += "*DETAIL PENJUAL*" + "%0A";
 		   wa += "=========================" + "%0A";
-		   wa += "*Nama Toko :* " + nama + "%0A";
-		   wa += "*Alamat Toko :* " + nomor + "%0A" + "%0A";
+		   wa += "*Nama Toko :* " + namaToko + "%0A";
+		   wa += "*Alamat Toko :* " + alamatToko + "%0A" + "%0A";
 		   wa += "*DETAIL PEMBELI*" + "%0A";
 		   wa += "=========================" + "%0A";
 		   wa += "*Nama :* " + nama + "%0A";
@@ -1975,6 +1975,7 @@ if (urlHome + urlPathname == urlForm){
 		   window.open(checkoutWA,'_blank');
 		   localStorage.removeItem('simpleCart_items');
 		   localStorage.removeItem('itemUser');
+		   window.location.href = urlHome + "/produk";
 		   return false;
 	   }	   
    }
