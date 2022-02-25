@@ -1916,6 +1916,7 @@ function tampilkanCOD() {
 		$("#option").html(kurir);
 		$("#price").html(harga);
 		$("#alamat").html(lokasiTujuan);
+		$("#detail").show();
                 itemArray = [
 			{
 			    "kurir": kurir,
