@@ -1849,6 +1849,73 @@ $(".tombol-lanjut .home").click(function(){
 if (urlHome + urlPathname == urlForm){
 	$(".kirim-data").click(tombolKirim);
    function tombolKirim() {
+	   var cekBayar = $(".data-pembayaran").val();
+	   var cekNama = $(".data-nama").val();
+	   var cekNomor = $(".data-nomor").val();
+	   if (cekNama == "") {
+		   informasi("Kolom Nama belum diisi");
+		   $(".data-nama").focus();
+		   return false;
+	   } else if (cekNomor == "") {
+		   informasi("Kolom Nomor belum diisi");
+		   $(".data-nomor").focus();
+		   return false; 
+	   } else if (cekBayar == "default"){
+		   informasi("Silahkan pilih pembayaran untuk melanjutkan checkout");
+		   $(".data-pembayaran").focus();
+		   return false;
+	   } else {
+		  cartItem_wa='';
+                  counter_wa=1;
+                  sheetItems=JSON.parse(localStorage.getItem('simpleCart_items'));
+                  sheetItems=Object.values(sheetItems);
+                  sheetItems.forEach((item,i)=>{
+                      cartItem_wa+=counter_wa+'. '+item.name+'%0A';
+                      if(item.size!=undefined){
+                        cartItem_wa+=item.size+'%0A';
+                      }
+                      cartItem_wa+="Harga: "+angkaToRp(item.price)+'%0A';
+                      cartItem_wa+="Jumlah: "+item.quantity+'%0A';
+                      cartItem_wa+="Sub Total: "+angkaToRp(item.price*item.quantity)+'%0A';
+                      cartItem_wa+="Link: "+item.link+'%0A';
+                      cartItem_wa+='%0A';
+                      counter_wa++;
+                   });
+		   var nama = $(".data-nama").val();
+		   var nomor = $(".data-nomor").val();
+		   var alamat = $("data-lokasi-tujuan").text();
+		   var kurir = $(".data-kurir").text();
+		   var pembayaran = $(".data-pembayaran :selected").val();
+		   var itemProduk = cartItem_wa;
+		   var total = $("#totalharga").text();
+		   var ongkir = $(".data-ongkos").text();
+		   var jarak = $(".data-jarak").text();
+		   var grandTotal = $(".total-belanja").text();
+		   var catatan = $(".data-catatan").val();
+		   var wa = "";
+		   wa += "*DETAIL PEMBELI*" + "%0A";
+		   wa += "=========================" + "%0A";
+		   wa += "*Nama :* " + nama + "%0A";
+		   wa += "*Nomor :* " + nomor + "%0A";
+		   wa += "*Alamat :* " + alamat + "%0A";
+		   wa += "*Kurir :* " + kurir + "%0A";
+		   wa += "*Pembayaran :* " + pembayaran + "%0A" + "%0A";
+		   wa += "*DETAIL PRODUK*" + "%0A";
+		   wa += "========================" + "%0A";
+		   wa += itemProduk + "%0A";
+		   wa += "========================" + "%0A";
+		   wa += "*Jarak :* " + jarak + "%0A";
+		   wa += "*Ongkos Kirim :* " + ongkir + "%0A";
+		   wa += "*Total Harga :* " + total + "%0A";
+		   wa += "*Total Pembayaran :* " + grandTotal + "%0A";
+		   wa += "========================";
+		   var walink = "https://api.whatsapp.com/send";
+		   var checkoutWA = walink + "?phone=" + hpAdmin + "&text=" + wa;
+		   window.open(checkoutWA,'_blank');
+		   localStorage.removeItem('simpleCart_items');
+		   localStorage.removeItem('itemUser');
+		   return false;
+	   }	   
    }
    $("body").on("change",".form-checkout select.data-pembayaran",function(){ 
 	   simpleCart.update(); 
