@@ -1733,6 +1733,12 @@ simpleCart({
     },
 });
 
+$(function () {
+    $(window).scroll(function () {
+        $(this).scrollTop() > 80 ? $(".form-lokasi").addClass("fixed") : $(".form-lokasi").removeClass("fixed");
+    })
+});
+
 var map;
 var directionsService = new google.maps.DirectionsService();
 var directionsDisplay = new google.maps.DirectionsRenderer();
