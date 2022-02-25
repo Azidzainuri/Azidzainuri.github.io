@@ -3,6 +3,7 @@ var urlParameter = new URL(url_string);
 var urlHome = urlParameter.origin;
 var urlPathname = urlParameter.pathname;
 var urlOriginal = urlParameter.hostname;
+var urlCheckout = urlHome + "/produk/checkout";
 var hpAdmin = "6289677337414";
 var formVoucher = "toko:20000";
 var minimumVoucher = "100000";
@@ -84,8 +85,8 @@ $(document).ready(function ($) {
     $(".belibeli-buka-share").click(function () {
         $(".belibeli-produk-share-icon").toggleClass("aktif");
     });
-    $(".tombol-home").click(function () {
-        window.location.href = urlHome;
+    $(".box-checkout .checkout").click(function () {
+        window.location.href = urlCheckout;
     });
     $(".button-tab button").on("click", function (a) {
         a.preventDefault();
