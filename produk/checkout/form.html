@@ -8,71 +8,47 @@
     <meta content="Product Example" name="keywords">
     <title>Product Example</title>
     <link rel="stylesheet" href="../style.css">
+    <style>
+      #main-produk {
+        padding-top: 15px!important;
+      }
+    </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   </head>
   <body>
-    <header>
-      <div class="header-wrap">
-        <div class="header-container">
-        <a href="/produk"><img src="https://1.bp.blogspot.com/-8sjLbIfqqqY/Xu3YjkEPyzI/AAAAAAAABkE/32P6pukxXVkUCpec7Ty4-08aLF214VW6wCK4BGAYYCw/w300/sayuean.png" width="300" height="80" alt="title produk"></a>
-        <div class="menu-kategori">
-          <div class="button">
-            <span class="line1"></span>
-            <span class="line2"></span>
-            <span class="line3"></span>
-          </div>
-        </div>
-        </div>
-      </div>
-    </header>
     <main>
       <section id="main-produk">
         <div class="main-produk-wrap">
-          <div class="box-cek-driver">
-            <div class="button-tab">
-              <button class="tab-opsi active" name="goride" data="1000">GoRide🛵</button>
-              <button class="tab-opsi" name="gocar" data="1200">GoCar🚕</button>
-              <button class="tab-opsi" name="delivery" data="1500">Delivery📦</button>
+          <div class="form-checkout">
+            <button class="tombol-close">
+              <span class='close-button'>&#10005;</span>
+            </button>
+            <div class="title-keterangan">Alamat Pengiriman</div>
+            <div class="data-lokasi-tujuan"></div>
+            <div class="title-keterangan">Detail Barang</div>
+            <div class="item-data-produk">
+              <div class="simpleCart_items"></div>
             </div>
-            <div class="form-lokasi">
-              <form>
-                <div class="data-form">
-                  <input class="validate" name="lokasi penjual" id="start" value="Lamongan, Kabupaten Lamongan, Jawa Timur, Indonesia" readonly type="text">
-                </div>
-                <div class="data-form">
-                  <input class="validate" name="lokasi tujuan" id="end" placeholder="lokasi tujuan" ruquered type="text">
-                </div>
-              </form>
+            <div class="box-harga-produk">
+              <div class="detail-harga">
+                Total Harga (<span class='simpleCart_quantity'></span> Produk) <span class='simpleCart_total'></span>
+              </div>
+              <div class="detail-ongkir">
+                Ongkir (Jarak <span class="data-jarak"></span>) <span class="data-ongkos"></span>
+              </div>
             </div>
-            <div id="map"></div>
-            <div id="detail">
-              <div class="detail-wrap">
-                <table>
-                        <tr>
-                            <th style="color:grey">Opsi</th>
-                            <th>:</th>
-                            <td id="option"></td>
-                        </tr>
-                        <tr>
-                            <th style="color:grey">Jarak</th>
-                            <th>:</th>
-                            <td id="distance"></td>
-                        </tr>
-                        <tr>
-                            <th style="color:grey">Durasi</th>
-                            <th>:</th>
-                            <td id="duration"></td>
-                        </tr>
-                        <tr>
-                            <th style="color:grey">Harga</th>
-                            <th>:</th>
-                            <td id="price"></td>
-                        </tr>
-                </table>
-              </div>
-              <div class="tombol-lanjut">
-                <a href="/produk/checkout/form.html">Lanjut</a>
-              </div>
+            <div class="title-keterangan">Dikirim Dengan</div>
+            <div class="data-kurir"></div>
+            <div class="title-ketangan">Pembayaran</div>
+            <select class="data-pembayaran" name="Pembayaran">
+              <option value="default">Pilih Pembayaran</option>
+              <option value="Azid Zainuri a/n 098978997 - BRI">Via BRI</option>
+            </select>
+            <div class="title-keterangan">Catatan</div>
+            <input class="data-catatan" name="Catatan" type="text" placeholder="Tulis Catatan Disini">
+            <div class="box-checkout">
+              <button class="grid total-belanja">Rp.NaN</button>
+              <button class="grid kirim-data">Checkout</button>
             </div>
           </div>
         </div>
