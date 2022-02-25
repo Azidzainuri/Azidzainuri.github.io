@@ -1900,7 +1900,7 @@ if (urlHome + urlPathname == urlForm){
 		   wa += "*Alamat :* " + alamat + "%0A";
 		   wa += "*Kurir :* " + kurir + "%0A";
 		   wa += "*Pembayaran :* " + pembayaran + "%0A" + "%0A";
-		   wa += "*DETAIL PRODUK* + "%0A";
+		   wa += "*DETAIL PRODUK*" + "%0A";
 		   wa += "========================" + "%0A";
 		   wa += itemProduk + "%0A";
 		   wa += "========================" + "%0A";
