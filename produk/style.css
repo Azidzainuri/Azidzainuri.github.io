@@ -644,7 +644,7 @@ header {
     margin: 0;
     border-radius: 5px;
 }
-.item-data-produk .item-price, .item-data-produk .item-link {
+.item-data-produk .item-price, .item-data-produk .item-link, .item-data-produk .item-toko, .item-data-produk .item-alamat {
     display: none;
 }
 .item-data-produk .item-decrement, .item-data-produk .item-quantity, .item-data-produk .item-increment {
