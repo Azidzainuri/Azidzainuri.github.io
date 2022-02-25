@@ -629,10 +629,6 @@ header {
     font-size: 14px;
     margin-bottom: 10px;
 }
-.item-data-produk .item-name:before {
-    counter-increment: my-sec-counter;
-    content: counter(my-sec-counter) ". ";
-}
 .item-data-produk .item-remove {
     right: 0;
     top: 5px;
@@ -751,6 +747,7 @@ header {
 }
 .data-form input:focus {
     border: none;
+    border-bottom: 1px solid #ddd;
     outline: none;
 }   
 #map {
@@ -826,3 +823,95 @@ header {
     color: #fff;
 }
 
+/* Menu Form Checkout */
+.form-checkout {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    padding: 0 15px;
+    padding-top: 30px;
+    width: calc(100% - 30px);
+}
+.form-checkout .tombol-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    background: #fff;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 0 5px 0 5px;
+    outline: none;
+    cursor: pointer;
+}
+.title-keterangan {
+    position: relative;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.data-lokasi-tujuan, .data-kurir {
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid #999;
+}
+.detail-ongkir {
+    position: relative;
+    margin: 10px 0;
+}
+.data-ongkos {
+    font-weight: 600;
+    color: #ff0000;
+}
+.form-checkout select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-size: 14px;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #999;
+    border-radius: 0;
+    background: #fff;
+    color: #444;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    text-overflow: ellipsis;
+    background-image: url(data:image/svg+xml,%3Csvg\ style=\'fill:rgba\(0,0,0,.4\);\'\ xmlns=\'http://www.w3.org/2000/svg\'\ viewBox=\'0\ 0\ 512\ 512\'%3E%3Cpath\ d=\'M256\ 294.1L383\ 167c9.4-9.4\ 24.6-9.4\ 33.9\ 0s9.3\ 24.6\ 0\ 34L273\ 345c-9.1\ 9.1-23.7\ 9.3-33.1.7L95\ 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3\ 7-17c9.4-9.4\ 24.6-9.4\ 33.9\ 0l127.1\ 127z\'%3E%3C/path%3E%3C/svg%3E);
+    background-repeat: no-repeat;
+    background-position-x: calc(100% - 10px);
+    background-position-y: 10px;
+    background-size: 20px auto;
+    padding-right: 45px;
+    position: relative;
+}
+.form-checkout input {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    font-size: 14px;
+    border: none;
+    border-bottom: 1px solid #999;
+    outline: none;
+}
+.form-checkout select:focus, .form-checkout input:focus {
+    border:none;
+    border-bottom: 1px solid #999;
+    outline: none;
+}
+.box-checkout .total-belanja {
+    background: #fff;
+    color: #222222;
+}
+.box-checkout .kirim-data {
+    background: #e93314;
+}
+.box-checkout .kirim-data:hover {
+    background: #3271d7;
+}
