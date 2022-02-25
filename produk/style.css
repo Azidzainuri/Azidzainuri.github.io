@@ -717,11 +717,11 @@ header {
 }
 .form-lokasi {
     position: fixed;
-    top: 175px;
+    top: 120px;
     z-index: 9;
 }
 .form-lokasi.fixed {
-    top: 70px;
+    top: 15px;
 }
 .form-lokasi form {
     position: relative;
