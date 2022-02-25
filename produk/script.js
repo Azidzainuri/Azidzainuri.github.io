@@ -1914,8 +1914,8 @@ function tampilkanCOD() {
 		var lokasiTujuan = $("#end-cod").val();
 		var toko = $("#toko").text();
 		$("#option").html(kurir);
-		$("#price").html(harga);
-		$("#alamat").html(lokasiTujuan);
+		$("#price").html(angkaToRp(harga));
+		$("#Alamat").html(lokasiTujuan);
 		$("#detail").show();
                 itemArray = [
 			{
