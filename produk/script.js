@@ -1142,13 +1142,15 @@ $(".keranjang-kosong").text("keranjang Anda masih kosong!");
                 var splitToko = resetToko.split(",");
                 var arrayToko = [...new Set(splitToko)];
                 var tokoUtama = arrayToko[0];
-                var itemToko = $(".post-meta-top .post-author").text();		    
+                var itemToko = $(".post-meta-top .post-author").text();
+		    console.log(itemToko);
+		    console.log(tokoUtama);
                if (simpleCart.has(item)) {
                     informasi("Produk ini sudah tersedia dikeranjang Anda");
                     return false;
 	       } else if (itemToko != tokoUtama && tokoUtama != "") {
 		    informasi("Nama Toko berbeda, Anda tidak bisa menambahkan produk ini!"); 
-	       } else if (tokoUtama == "") {
+	       } else if (tokoUtama == itemToko) {
                     informasi("Produk Berhasil Ditambahkan");
                 }
             });
