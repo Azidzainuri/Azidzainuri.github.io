@@ -796,6 +796,9 @@ header {
     text-align: center;
     gap: 5px;
 }
+#toko {
+    display:none;
+}
 .tombol-lanjut a {
     -webkit-box-flex: 1;
     -ms-flex: 1 1 calc(50% - 5px);
@@ -852,7 +855,7 @@ header {
     font-weight: 700;
     text-transform: uppercase;
 }
-.data-lokasi-tujuan, .data-kurir {
+.data-lokasi-asal, .data-lokasi-tujuan, .data-kurir, .data-toko {
     font-size: 14px;
     margin-bottom: 10px;
     padding: 10px 0;
