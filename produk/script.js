@@ -1811,7 +1811,7 @@ function findRoute(harga) {
 }
 function lihatDetail(){
 	var harga = document.querySelector(".tab-opsi.active").getAttribute("data");
-	console.lgo(harga);
+	console.log(harga);
 	findRoute(harga);
 }
 $("#end").change(lihatDetail); 
