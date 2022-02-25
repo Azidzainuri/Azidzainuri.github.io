@@ -1903,6 +1903,7 @@ function tampilkanCOD() {
 	if (alamat == ""){
 		informasi("Alamat Anda Diperlukan");
 		$("#end-cod").focus();
+		$("#lokasi-cod").val("default");
 		return false;
 	} else if (daerah == "default"){
 		informasi("Pilih Daerah untuk menentukan ongkos kirim");
