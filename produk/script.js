@@ -1150,7 +1150,7 @@ $(".keranjang-kosong").text("keranjang Anda masih kosong!");
                     return false;
 	       } else if (itemToko != tokoUtama && tokoUtama != "") {
 		    informasi("Nama Toko berbeda, Anda tidak bisa menambahkan produk ini!"); 
-	       } else if (tokoUtama == itemToko) {
+	       } else if (tokoUtama == itemToko || tokoUtama == "") {
                     informasi("Produk Berhasil Ditambahkan");
                 }
             });
