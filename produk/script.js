@@ -761,7 +761,7 @@ $(".keranjang-kosong").text("keranjang Anda masih kosong!");
                         label,
                         x,
                         xlen;
-                       $(".box-harga-produk,.box-checkout").hide();
+                       $("#pilihan-kurir,.box-harga-produk,.box-checkout").hide();
 
                     container.html(" ").append(cart_container);
 
@@ -800,7 +800,7 @@ $(".keranjang-kosong").text("keranjang Anda masih kosong!");
                         content,
                         cell;
                     $(".empty-cart").hide();
-                    $(".box-harga-produk,.box-checkout").show();
+                    $("#pilihan-kurir,.box-harga-produk,.box-checkout").show();
 
                     container.append(row);
 
