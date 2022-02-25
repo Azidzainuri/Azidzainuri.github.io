@@ -705,6 +705,9 @@ header {
     top: 175px;
     z-index: 9;
 }
+.form-lokasi.fixed {
+    top: 70px;
+}
 .form-lokasi form {
     position: relative;
     display: block;
