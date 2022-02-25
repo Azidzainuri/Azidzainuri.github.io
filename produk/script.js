@@ -1146,7 +1146,7 @@ $(".keranjang-kosong").text("keranjang Anda masih kosong!");
                if (simpleCart.has(item)) {
                     informasi("Produk ini sudah tersedia dikeranjang Anda");
                     return false;
-	       } else if (itemToko != tokoUtama && nomorUtama != "") {
+	       } else if (itemToko != tokoUtama && tokoUtama != "") {
 		    informasi("Nama Toko berbeda, Anda tidak bisa menambahkan produk ini!"); 
 	       } else if (tokoUtama == "") {
                     informasi("Produk Berhasil Ditambahkan");
