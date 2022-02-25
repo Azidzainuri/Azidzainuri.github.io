@@ -1898,11 +1898,11 @@ $("#end").change(lihatDetail);
 //Untuk COD
 $("#lokasi-cod").change(tampilkanCOD);
 function tampilkanCOD() {
-	var alamat = $("#end").val();
-	var daerah = $("#lokasi-cod").val()
+	var alamat = $("#end-cod").val();
+	var daerah = $("#lokasi-cod").val();
 	if (alamat == ""){
 		informasi("Alamat Anda Diperlukan");
-		$("#end").focus();
+		$("#end-cod").focus();
 		return false;
 	} else if (daerah == "default"){
 		informasi("Pilih Daerah untuk menentukan ongkos kirim");
@@ -1911,7 +1911,7 @@ function tampilkanCOD() {
 		var kurir = "COD - " + $("#lokasi-cod :selected").text();
 		var harga = $("#lokasi-cod :selected").val();
                 var lokasiAsal = $("#start").val();
-		var lokasiTujuan = $("#end").val();
+		var lokasiTujuan = $("#end-cod").val();
 		var toko = $("#toko").text();
 		$("#option").html(kurir);
 		$("#price").html(harga);
