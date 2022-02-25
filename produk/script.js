@@ -1860,7 +1860,7 @@ function findRoute(event) {
             var km = round(resetKM, 0);
             var opsi = $(".tab-opsi.active").text();
 	    $("#option").html(opsi);
-            //$("#distance").html(km + " Km");
+            $("#distance").html(km + " Km");
 	    $("#duration").html(result.routes[0].legs[0].duration.text);
 		console.log(event);
 	    $("#price").html(angkaToRp(km * parseInt(event)));
