@@ -1908,7 +1908,7 @@ if (urlHome + urlPathname == urlForm){
 		   wa += "*Ongkos Kirim :* " + ongkir + "%0A";
 		   wa += "*Total Harga :* " + total + "%0A";
 		   wa += "*Total Pembayaran :* " + grandTotal + "%0A";
-		   wa += ""========================";
+		   wa += "========================";
 		   var walink = "https://api.whatsapp.com/send";
 		   var checkoutWA = walink + "?phone=" + hpAdmin + "&text=" + wa;
 		   window.open(checkoutWA,'_blank');
