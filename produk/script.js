@@ -1761,7 +1761,7 @@ if (cekMap != null) {
 	var end = document.getElementById('end');
 	var searchEnd = new google.maps.places.SearchBox(end);
 }
-function findRoute(harga) {
+function findRoute(event) {
     var startAddress = $("#start").val();
     var endAddress = $("#end").val();
     var request = {
@@ -1784,13 +1784,13 @@ function findRoute(harga) {
 	    $("#option").html(opsi);
             $("#distance").html(km + " Km");
 	    $("#duration").html(result.routes[0].legs[0].duration.text);
-		console.log(harga);
-	    $("#price").html(angkaToRp(km * parseInt(harga)));
+		console.log(event);
+	    $("#price").html(angkaToRp(km * parseInt(event)));
             $("#detail").show();
             var kurir = opsi;
             var jarak = km + " Km";
 	    var waktu = result.routes[0].legs[0].duration.text;
-	    var harga = km * parseInt(harga);
+	    var harga = km * parseInt(event);
             var lokasi = $("#end").val();
 	    itemArray = [
 		    {
@@ -1810,9 +1810,9 @@ function findRoute(harga) {
     });
 }
 function lihatDetail(){
-	var harga = document.querySelector(".tab-opsi.active").getAttribute("data");
-	console.log(harga);
-	findRoute(harga);
+	var price = $(".tab-opsi.active").attr("data");
+	console.log(price);
+	findRoute(price);
 }
 $("#end").change(lihatDetail); 
 
