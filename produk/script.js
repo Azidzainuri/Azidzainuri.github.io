@@ -676,7 +676,10 @@ $(".keranjang-kosong").text("keranjang Anda masih kosong!");
                 totalberat: function (item, column) {
                     return "<span class='total-berat' data-berat='" + item.get(column.attr) + "'>" + "berat " + formatBerat(item.get(column.attr)) + "</span>";
                 },
-                nomor: function (item, column) {
+                toko: function (item, column) {
+                    return [item.get(column.attr)];
+                },
+		alamat: function (item, column) {
                     return [item.get(column.attr)];
                 },
                 catatan: function (item, column) {
@@ -1129,10 +1132,23 @@ $(".keranjang-kosong").text("keranjang Anda masih kosong!");
             });
 
             simpleCart.bind("beforeAdd", function (item) {
-              if (simpleCart.has(item)) {
+                cekToko='';
+                checkToko=JSON.parse(localStorage.getItem('simpleCart_items'));
+                checkToko=Object.values(checkToko);
+                checkToko.forEach((item,i)=>{
+                   cekToko+=item.toko+',';
+                });
+                var resetToko = cekToko.replace(/,\s*$/, "");
+                var splitToko = resetToko.split(",");
+                var arrayToko = [...new Set(splitToko)];
+                var tokoUtama = arrayToko[0];
+                var itemToko = $(".nomor-inpost").text();		    
+               if (simpleCart.has(item)) {
                     informasi("Produk ini sudah tersedia dikeranjang Anda");
                     return false;
-                } else {
+	       } else if (itemToko != tokoUtama && nomorUtama != "") {
+		    informasi("Nama Toko berbeda, Anda tidak bisa menambahkan produk ini!"); 
+	       } else if (tokoUtama == "") {
                     informasi("Produk Berhasil Ditambahkan");
                 }
             });
@@ -1765,6 +1781,30 @@ if (cekMap != null) {
 	var end = document.getElementById('end');
 	var searchEnd = new google.maps.places.SearchBox(end);
 }
+cekAlamat='';
+checkAlamat=JSON.parse(localStorage.getItem('simpleCart_items'));
+checkAlamat=Object.values(checkAlamat);
+checkAlamat.forEach((item,i)=>{
+   cekAlamat+=item.alamat+'=';
+});
+var resetAlamat = cekAlamat.replace(/=\s*$/, "");
+var splitAlamat = resetAlamat.split("=");
+var arrayAlamat = [...new Set(splitAlamat)];
+console.log(arrayAlamat);
+var startAlamat = arrayAlamat[0];
+$("#start").val(startAlamat);
+cekToko='';
+checkToko=JSON.parse(localStorage.getItem('simpleCart_items'));
+checkToko=Object.values(checkToko);
+checkToko.forEach((item,i)=>{
+   cekToko+=item.toko+'=';
+});
+var resetToko = cekToko.replace(/=\s*$/, "");
+var splitToko = resetToko.split("=");
+var arrayToko = [...new Set(splitToko)];
+console.log(arrayToko);
+var startToko = arrayToko[0];
+$("#toko").html(startToko).hide();
 function findRoute(event) {
     var startAddress = $("#start").val();
     var endAddress = $("#end").val();
@@ -1795,14 +1835,18 @@ function findRoute(event) {
             var jarak = km + " Km";
 	    var waktu = result.routes[0].legs[0].duration.text;
 	    var harga = km * parseInt(event);
-            var lokasi = $("#end").val();
+            var lokasiAsal = $("#start").val();
+            var lokasiTujuan = $("#end").val();
+            var toko = $("#toko").text();
 	    itemArray = [
 		    {
 			    "kurir": kurir,
 			    "jarak": jarak,
 			    "waktu": waktu,
 			    "harga": harga,
-			    "lokasi": lokasi
+			    "lokasiasal": lokasiAsal,
+			    "lokasitujuan": lokasiTujuan,
+			    "toko": toko
 		    }
 	    ];
 		console.log(itemArray);
@@ -1830,8 +1874,12 @@ $("#end").change(lihatDetail);
     var dataJarak = hasil.jarak;
     var dataWaktu = hasil.waktu;
     var dataHarga = hasil.harga;
-    var dataLokasi = hasil.lokasi;
-    $(".data-lokasi-tujuan").html(dataLokasi);
+    var dataLokasiasal = hasil.lokasiasal;
+    var dataLokasitujuan = hasil.lokasitujuan;
+    var dataToko = hasil.toko;
+    $(".data-toko").html(dataToko);
+    $(".data-lokasi-asal").html(dataLokasiasal);
+    $(".data-lokasi-tujuan").html(dataLokasitujuan);
     $(".data-kurir").html(dataKurir);
     $(".data-jarak").html(dataJarak);
     $(".data-ongkos").html(angkaToRp(dataHarga));
@@ -1881,6 +1929,8 @@ if (urlHome + urlPathname == urlForm){
                       cartItem_wa+='%0A';
                       counter_wa++;
                    });
+		   var namaToko = $(".data-toko").text();
+		   var alamatToko = $(".data-lokasi-asal").text();
 		   var nama = $(".data-nama").val();
 		   var nomor = $(".data-nomor").val();
 		   var alamat = $(".data-lokasi-tujuan").text();
@@ -1893,6 +1943,10 @@ if (urlHome + urlPathname == urlForm){
 		   var grandTotal = $(".total-belanja").text();
 		   var catatan = $(".data-catatan").val();
 		   var wa = "";
+		   wa += "*DETAIL PENJUAL*" + "%0A";
+		   wa += "=========================" + "%0A";
+		   wa += "*Nama Toko :* " + nama + "%0A";
+		   wa += "*Alamat Toko :* " + nomor + "%0A" + "%0A";
 		   wa += "*DETAIL PEMBELI*" + "%0A";
 		   wa += "=========================" + "%0A";
 		   wa += "*Nama :* " + nama + "%0A";
@@ -1935,6 +1989,8 @@ simpleCart({
 { view: "decrement", label: false },
 { attr: "quantity", label: false, view: "jumlah" },
 { view: "increment", label: false },
+{ attr: "toko", label: false, view: "toko" }, 
+{ attr: "alamat", label: false, view: "alamat" }, 		
 { attr: "total", label: false, view: "currency" },
 { attr: "link", label: false, view: "linkproduk" },           
 	],
