@@ -1786,7 +1786,7 @@ function findRoute(harga) {
 	    $("#duration").html(result.routes[0].legs[0].duration.text);
 		console.log(harga);
 		console.log(km*harga);
-		console.log(angkToRp(km*harga);
+		console.log(angkToRp(km*harga));
 	    $("#price").html(angkaToRp(km * parseInt(harga)));
             $("#detail").show();
             var kurir = opsi;
