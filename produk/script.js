@@ -3,7 +3,8 @@ var urlParameter = new URL(url_string);
 var urlHome = urlParameter.origin;
 var urlPathname = urlParameter.pathname;
 var urlOriginal = urlParameter.hostname;
-var urlCheckout = urlHome + "/produk/checkout";
+var urlDelivery = urlHome + "/produk/checkout";
+var urlCOD = urlHome+ "/produk/checkout/cod.html";
 var urlForm = urlHome + "/produk/checkout/form.html";
 var hpAdmin = "6289677337414";
 var formVoucher = "toko:20000";
@@ -27,6 +28,12 @@ for (a = 0; a < ongkirCOD.length; a++) {
 selectCOD += '<option value="'+ongkirCOD[a].harga+'">'+ongkirCOD[a].nama+'</option>';
 }
 $("#lokasi-cod").html(selectCOD);
+var pilihKurir = "<select id='cek-kurir'>";
+pilihKurir += "<option value='default'>Pilih Kurir</option>";
+pilihKurir += "<option value='cod'>COD</option>";
+pilihKurir += "<option value='delivery'>Delivery</option>";
+pilihKurir += "</select>";
+$("#pilihan-kurir").html(pilihKurir);
 
 //Format Rupiah
   function angkaToRp(angka) {
