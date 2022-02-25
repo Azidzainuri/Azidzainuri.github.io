@@ -598,6 +598,14 @@ header {
     background: #e93314;
     color: #ffffff;
 }
+#pilihan-kurir {
+    position: relative;
+    display: block;
+    width: calc(100% - 30px);
+    margin: 10px 0 20px 0;
+    padding: 0 15px;
+}
+
 /* Item Produk */
 .item-data-produk .itemRow {
     position: relative;
@@ -903,7 +911,7 @@ header {
     border-bottom: 1px solid #999;
     outline: none;
 }
-.form-checkout select:focus, .form-checkout input:focus {
+#pilihan-kurir select:focus, #lokasi-cod select:focus, .form-checkout select:focus, .form-checkout input:focus {
     border:none;
     border-bottom: 1px solid #999;
     outline: none;
