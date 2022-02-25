@@ -77,10 +77,8 @@ $(document).ready(function ($) {
     $(".menu-buka").click(function () {
         $(".kategori-dropdown").toggleClass("active");
     });
-    $(".box-checkout .kembali,.box-data-produk-wrap .tombol-close").click(function () {
+    $(".menu-kategori .button,.box-checkout .kembali,.box-data-produk-wrap .tombol-close").click(function () {
         $(".box-data-produk").slideToggle("normal");
-        //$("#kurir").val("default");
-        //$("#pembayaran").val("default");
         return false;
     });
     $(".belibeli-buka-share").click(function () {
