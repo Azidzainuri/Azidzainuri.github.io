@@ -1840,7 +1840,6 @@ $("#end").change(lihatDetail);
 		    var total = dataHarga;
 		    return total;
 	    },
-	    simpleCart.update(); 
     });  
   }
 $(".tombol-lanjut .home").click(function(){
@@ -1848,7 +1847,6 @@ $(".tombol-lanjut .home").click(function(){
 	return false;
 });
 if (urlHome + urlPathname == urlForm){
-   console.log("coba");
 	$(".kirim-data").click(tombolKirim);
    function tombolKirim() {
 	   var cekBayar = $(".data-pembayaran").val();
@@ -1914,6 +1912,8 @@ if (urlHome + urlPathname == urlForm){
 		   var walink = "https://api.whatsapp.com/send";
 		   var checkoutWA = walink + "?phone=" + hpAdmin + "&text=" + wa;
 		   window.open(checkoutWA,'_blank');
+		   localStorage.removeItem('simpleCart_items');
+		   localStorage.removeItem('itemUser');
 		   return false;
 	   }
    }
