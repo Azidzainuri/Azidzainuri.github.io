@@ -1831,7 +1831,7 @@ $("#end").change(lihatDetail);
 $(".tombol-lanjut .home").click(function(){
 	localStorage.removeItem('itemUser');
 	return false;
-}
+});
 simpleCart({
 	cartColumns: [
 { attr: "thumb", label: false, view: "image" },
