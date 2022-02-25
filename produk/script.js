@@ -1827,6 +1827,10 @@ $("#end").change(lihatDetail);
     var dataWaktu = hasil.waktu;
     var dataHarga = hasil.harga;
     var dataLokasi = hasil.lokasi;
+    $(".data-lokasi-tujuan").html(dataLokasi);
+    $(".data-kurir").html(dataKurir);
+    $(".data-jarak").html(dataJarak);
+    $(".data-ongkos").html(angkaToRp(dataHarga));
   }
 $(".tombol-lanjut .home").click(function(){
 	localStorage.removeItem('itemUser');
