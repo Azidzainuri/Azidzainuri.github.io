@@ -729,7 +729,12 @@ header {
     border: none;
     border-bottom: 1px solid #ddd;
     font-size: 12px;
+    outline: none;
 }
+.data-form input:focus {
+    border: none;
+    outline: none;
+}   
 #map {
     position: relative;
     display: block;
