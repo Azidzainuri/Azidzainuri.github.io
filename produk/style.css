@@ -753,6 +753,9 @@ header {
     font-size: 12px;
     outline: none;
 }
+.form-cod .data-form input {
+    max-width: 640px;
+}
 .data-form input:focus {
     border: none;
     border-bottom: 1px solid #ddd;
@@ -877,7 +880,7 @@ header {
     font-weight: 600;
     color: #ff0000;
 }
-#pilihan-kurir select, #lokasi-cod select, .form-checkout select {
+#pilihan-kurir select, #lokasi-cod, .form-checkout select {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -900,6 +903,13 @@ header {
     padding-right: 45px;
     position: relative;
 }
+.form-cod {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
 .form-checkout input {
     position: relative;
     display: block;
@@ -911,7 +921,7 @@ header {
     border-bottom: 1px solid #999;
     outline: none;
 }
-#pilihan-kurir select:focus, #lokasi-cod select:focus, .form-checkout select:focus, .form-checkout input:focus {
+#pilihan-kurir select:focus, #lokasi-cod:focus, .form-checkout select:focus, .form-checkout input:focus {
     border:none;
     border-bottom: 1px solid #999;
     outline: none;
