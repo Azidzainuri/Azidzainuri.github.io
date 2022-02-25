@@ -90,7 +90,7 @@ $(document).ready(function ($) {
         window.location.href = urlCheckout;
     });
     $(".form-checkout .tombol-close").click(function () {
-        window.location.href = urlHome;
+        window.location.href = urlHome + "/produk";
     });		
     $(".button-tab button").on("click", function (a) {
         a.preventDefault();
