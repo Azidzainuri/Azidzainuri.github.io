@@ -1807,8 +1807,7 @@ function findRoute(harga) {
         }
     });
 }
-function lihatDetail(event){
-	event.preventDefault();
+function lihatDetail(){
 	var harga = $(".tab-opsi.active").attr("data");
 	findRoute(harga);
 }
