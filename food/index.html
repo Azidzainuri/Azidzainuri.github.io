@@ -1,0 +1,472 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--=============== REMIXICONS ===============-->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!--=============== CSS ===============-->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <title>Responsive sushi website - CodeJS</title>
+  <style>
+  </style>
+</head>
+
+<body>
+  <!--==================== HEADER ====================-->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#" class="nav__logo">
+        <img src="https://codejs.com/images/web_assets_folder/logo.png" alt="logo image">
+        Sushi
+      </a>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list grid">
+          <li class="nav__item">
+            <a href="#home" class="nav__link active-link">Home</a>
+          </li>
+
+          <li class="nav__item">
+            <a href="#about" class="nav__link">About Us</a>
+          </li>
+
+          <li class="nav__item">
+            <a href="#popular" class="nav__link">Popular</a>
+          </li>
+
+          <li class="nav__item">
+            <a href="#recently" class="nav__link">Recently</a>
+          </li>
+        </ul>
+
+        <!-- Close button -->
+        <div class="nav__close" id="nav-close">
+          <i class="ri-close-line"></i>
+        </div>
+
+        <img src="https://codejs.com/images/web_assets_folder/leaf-branch-4.png" alt="nav image" class="nav__img-1">
+        <img src="https://codejs.com/images/web_assets_folder/leaf-branch-3.png" alt="nav image" class="nav__img-2">
+      </div>
+
+      <div class="nav__buttons">
+        <!-- Theme change button -->
+        <i class="ri-moon-line change-theme" id="theme-button"></i>
+
+        <!-- Toggle button -->
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="ri-apps-2-line"></i>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!--==================== MAIN ====================-->
+  <main class="main">
+    <!--==================== HOME ====================-->
+    <section class="home section" id="home">
+      <div class="home__container container grid">
+        <img src="https://codejs.com/images/web_assets_folder/home-sushi-rolls.png" alt="home image" class="home__img">
+
+        <div class="home__data">
+          <h1 class="home__title">
+            Enjoy Delicious
+
+            <div>
+              <img src="https://codejs.com/images/web_assets_folder/home-sushi-title.png" alt="">
+              Sushi Food
+            </div>
+          </h1>
+
+          <p class="home__description">
+            Enjoy a good dinner with the best dishes in
+            the restaurant and improve your day.
+          </p>
+
+          <a href="#" class="button">
+            Order Now <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+      </div>
+
+      <img src="https://codejs.com/images/web_assets_folder/leaf-branch-2.png" alt="home image" class="home__leaf-1">
+      <img src="https://codejs.com/images/web_assets_folder/leaf-branch-4.png" alt="home image" class="home__leaf-2">
+    </section>
+
+    <!--==================== ABOUT ====================-->
+    <section class="about section" id="about">
+      <div class="about__container container grid">
+        <div class="about__data">
+          <span class="section__subtitle">About Us</span>
+          <h2 class="section__title about__title">
+            <div>
+              We Provide
+              <img src="https://codejs.com/images/web_assets_folder/about-sushi-title.png" alt="about image">
+            </div>
+
+            Healthy Food
+          </h2>
+
+          <p class="about__description">
+            Food comes to us from our relatives, whether they
+            have wings or roots. This is how we consider food,
+            it also has a culture. It has a history that passes
+            from generation to generation.
+          </p>
+        </div>
+
+        <img src="https://codejs.com/images/web_assets_folder/about-sushi.png" alt="about image" class="about__img">
+      </div>
+
+      <img src="https://codejs.com/images/web_assets_folder/leaf-branch-1.png" alt="about image" class="about__leaf">
+    </section>
+
+    <!--==================== POPULAR ====================-->
+    <section class="popular section" id="popular">
+      <span class="section__subtitle">The Best Food</span>
+      <h2 class="section__title">Popular Dishes</h2>
+
+      <div class="popular__container container grid">
+        <article class="popular__card">
+          <img src="https://codejs.com/images/web_assets_folder/popular-onigiri.png" alt="popular image" class="popular__img">
+
+          <h3 class="popular__name">Onigiri</h3>
+          <span class="popular__description">Japanese Dish</span>
+
+          <span class="popular__price">$10.99</span>
+
+          <button class="popular__button">
+            <i class="ri-shopping-bag-line"></i>
+          </button>
+        </article>
+
+        <article class="popular__card">
+          <img src="https://codejs.com/images/web_assets_folder/popular-spring-rols.png" alt="popular image" class="popular__img">
+
+          <h3 class="popular__name">Spring Rolls</h3>
+          <span class="popular__description">Japanese Dish</span>
+
+          <span class="popular__price">$15.99</span>
+
+          <button class="popular__button">
+            <i class="ri-shopping-bag-line"></i>
+          </button>
+        </article>
+
+        <article class="popular__card">
+          <img src="https://codejs.com/images/web_assets_folder/popular-sushi-rolls.png" alt="popular image" class="popular__img">
+
+          <h3 class="popular__name">Sushi Rolls</h3>
+          <span class="popular__description">Japanese Dish</span>
+
+          <span class="popular__price">$19.99</span>
+
+          <button class="popular__button">
+            <i class="ri-shopping-bag-line"></i>
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <!--==================== RECENTLY ====================-->
+    <section class="recently section" id="recently">
+      <div class="recently__container container grid">
+        <div class="recently__data">
+          <span class="section__subtitle">Recently Added</span>
+          <h2 class="section__title">
+            Sushi Samurai <br>
+            Salmón Cheese
+          </h2>
+
+          <p class="recently__description">
+            Take a look at what's new. And do not deprive
+            yourself of a good meal, enjoy and be happy.
+          </p>
+
+          <a href="#" class="button">
+            Order Now <i class="ri-arrow-right-line"></i>
+          </a>
+
+          <img src="https://codejs.com/images/web_assets_folder/spinach-leaf.png" alt="recently image" class="recently__data-img">
+        </div>
+
+        <img src="https://codejs.com/images/web_assets_folder/recently-salmon-sushi.png" alt="recently image" class="recently__img">
+      </div>
+
+      <img src="https://codejs.com/images/web_assets_folder/leaf-branch-2.png" alt="recently image" class="recently__leaf-1">
+      <img src="https://codejs.com/images/web_assets_folder/leaf-branch-3.png" alt="recently image" class="recently__leaf-2">
+    </section>
+
+    <!--==================== NEWSLETTER ====================-->
+    <section class="newsletter section">
+      <div class="newsletter__container container">
+        <div class="newsletter__content grid">
+          <img src="https://codejs.com/images/web_assets_folder/newsletter-sushi.png" alt="newsletter image" class="newsletter__img">
+
+          <div class="newsletter__data">
+            <span class="section__subtitle">Newsletter</span>
+            <h2 class="section__title">
+              Subscribe For <br>
+              Offer Updates
+            </h2>
+
+            <form action="" class="newsletter__form">
+              <input type="email" placeholder="Enter email" class="newsletter__input">
+              <button class="button newsletter__button">
+                Subscribe <i class="ri-send-plane-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <img src="https://codejs.com/images/web_assets_folder/spinach-leaf.png" alt="newsletter image" class="newsletter__spinach">
+      </div>
+    </section>
+  </main>
+
+  <!--==================== FOOTER ====================-->
+  <footer class="footer">
+    <div class="footer__container container grid">
+      <div>
+        <a href="#" class="footer__logo">
+          <img src="https://codejs.com/images/web_assets_folder/logo.png" alt="logo image">
+          Sushi
+        </a>
+
+        <p class="footer__description">
+          Food for the body is not <br>
+          enough. There must be food <br>
+          for the soul.
+        </p>
+      </div>
+
+      <div class="footer__content">
+        <div>
+          <h3 class="footer__title">Main Menu</h3>
+
+          <ul class="footer__links">
+            <li>
+              <a href="#" class="footer__link">About</a>
+            </li>
+            <li>
+              <a href="#" class="footer__link">Menus</a>
+            </li>
+            <li>
+              <a href="#" class="footer__link">Offer</a>
+            </li>
+            <li>
+              <a href="#" class="footer__link">Events</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__title">Information</h3>
+
+          <ul class="footer__links">
+            <li>
+              <a href="#" class="footer__link">Contact</a>
+            </li>
+            <li>
+              <a href="#" class="footer__link">Order & Returns</a>
+            </li>
+            <li>
+              <a href="#" class="footer__link">Videos</a>
+            </li>
+            <li>
+              <a href="#" class="footer__link">Reservation</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__title">Address</h3>
+
+          <ul class="footer__links">
+            <li class="footer__information">
+              123 fake street,
+              London, UK
+            </li>
+            <li class="footer__information">
+              12AM - 11PM
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer__title">Social Media</h3>
+
+          <ul class="footer__social">
+            <a href="https://www.facebook.com/" target="_blank" class="footer__social-link">
+              <i class="ri-facebook-circle-fill"></i>
+            </a>
+
+            <a href="https://www.instagram.com/" target="_blank" class="footer__social-link">
+              <i class="ri-instagram-fill"></i>
+            </a>
+
+            <a href="https://twitter.com/" target="_blank" class="footer__social-link">
+              <i class="ri-twitter-fill"></i>
+            </a>
+          </ul>
+        </div>
+      </div>
+
+      <img src="https://codejs.com/images/web_assets_folder/spring-onion.png" alt="footer image" class="footer__onion">
+      <img src="https://codejs.com/images/web_assets_folder/spinach-leaf.png" alt="footer image" class="footer__spinach">
+      <img src="https://codejs.com/images/web_assets_folder/leaf-branch-4.png" alt="footer leaf" class="footer__leaf">
+    </div>
+
+    <div class="footer__info container">
+      <div class="footer__card">
+        <img src="https://codejs.com/images/web_assets_folder/footer-card-1.png" alt="footer image">
+        <img src="https://codejs.com/images/web_assets_folder/footer-card-2.png" alt="footer image">
+        <img src="https://codejs.com/images/web_assets_folder/footer-card-3.png" alt="footer image">
+        <img src="https://codejs.com/images/web_assets_folder/footer-card-4.png" alt="footer image">
+      </div>
+
+      <span class="footer__copy">
+        &#169; Copyright CodeJS. All rights reserved
+      </span>
+    </div>
+  </footer>
+
+  <!--========== SCROLL UP ==========-->
+  <a href="#" class="scrollup" id="scroll-up">
+    <i class="ri-arrow-up-line"></i>
+  </a>
+
+  <!--=============== SCROLLREVEAL ===============-->
+  <script>
+/*=============== SHOW MENU ===============*/
+const navMenu = document.getElementById('nav-menu'),
+  navToggle = document.getElementById('nav-toggle'),
+  navClose = document.getElementById('nav-close')
+
+/*===== MENU SHOW =====*/
+/* Validate if constant exists */
+if (navToggle) {
+  navToggle.addEventListener('click', () => {
+    navMenu.classList.add('show-menu')
+  })
+}
+
+/*===== MENU HIDDEN =====*/
+/* Validate if constant exists */
+if (navClose) {
+  navClose.addEventListener('click', () => {
+    navMenu.classList.remove('show-menu')
+  })
+}
+
+/*=============== REMOVE MENU MOBILE ===============*/
+const navLink = document.querySelectorAll('.nav__link')
+
+const linkAction = () => {
+  const navMenu = document.getElementById('nav-menu')
+  // When we click on each nav__link, we remove the show-menu class
+  navMenu.classList.remove('show-menu')
+}
+navLink.forEach(n => n.addEventListener('click', linkAction))
+
+/*=============== CHANGE BACKGROUND HEADER ===============*/
+const scrollHeader = () => {
+  const header = document.getElementById('header')
+  // When the scroll is greater than 50 viewport height, add the scroll-header class to the header tag
+  this.scrollY >= 50 ? header.classList.add('bg-header') :
+    header.classList.remove('bg-header')
+}
+window.addEventListener('scroll', scrollHeader)
+
+/*=============== SHOW SCROLL UP ===============*/
+const scrollUp = () => {
+  const scrollUp = document.getElementById('scroll-up')
+  // When the scroll is higher than 350 viewport height, add the show-scroll class to the a tag with the scrollup class
+  this.scrollY >= 350 ? scrollUp.classList.add('show-scroll') :
+    scrollUp.classList.remove('show-scroll')
+}
+window.addEventListener('scroll', scrollUp)
+
+/*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
+const sections = document.querySelectorAll('section[id]')
+
+const scrollActive = () => {
+  const scrollY = window.pageYOffset
+
+  sections.forEach(current => {
+    const sectionHeight = current.offsetHeight,
+      sectionTop = current.offsetTop - 58,
+      sectionId = current.getAttribute('id'),
+      sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
+
+    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+      sectionsClass.classList.add('active-link')
+    } else {
+      sectionsClass.classList.remove('active-link')
+    }
+  })
+}
+window.addEventListener('scroll', scrollActive)
+
+/*=============== DARK LIGHT THEME ===============*/
+const themeButton = document.getElementById('theme-button')
+const darkTheme = 'dark-theme'
+const iconTheme = 'ri-sun-line'
+
+// Previously selected topic (if user selected)
+const selectedTheme = localStorage.getItem('selected-theme')
+const selectedIcon = localStorage.getItem('selected-icon')
+
+// We obtain the current theme that the interface has by validating the dark-theme class
+const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
+const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'ri-moon-line' : 'ri-sun-line'
+
+// We validate if the user previously chose a topic
+if (selectedTheme) {
+  // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
+  document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
+  themeButton.classList[selectedIcon === 'ri-moon-line' ? 'add' : 'remove'](iconTheme)
+}
+
+// Activate / deactivate the theme manually with the button 
+themeButton.addEventListener('click', () => {
+  // Add or remove the dark / icon theme
+  document.body.classList.toggle(darkTheme)
+  themeButton.classList.toggle(iconTheme)
+  // We save the theme and the current icon that the user chose
+  localStorage.setItem('selected-theme', getCurrentTheme())
+  localStorage.setItem('selected-icon', getCurrentIcon())
+})
+
+/*=============== SCROLL REVEAL ANIMATION ===============*/
+const sr = ScrollReveal({
+  origin: 'top',
+  distance: '60px',
+  duration: 2500,
+  delay: 400,
+  // reset: true // Animations repeat
+})
+
+sr.reveal(`.home__img, .newsletter__container, 
+           .footer__logo, .footer__description, 
+           .footer__content, .footer__info`)
+sr.reveal(`.home__data`, {
+  origin: 'bottom'
+})
+sr.reveal(`.about__data, .recently__data`, {
+  origin: 'left'
+})
+sr.reveal(`.about__img, .recently__img`, {
+  origin: 'right'
+})
+sr.reveal(`.popular__card`, {
+  interval: 100
+})
+  </script>
+</body>
+</html>
