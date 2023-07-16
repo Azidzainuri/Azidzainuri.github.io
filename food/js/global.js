@@ -111,7 +111,7 @@ $.getJSON(linkdata, function(data) {
     for (i=0; i < json.length; i++){
       var image = json[i]['Gambar Produk'];
       var nama = json[i]['Nama Produk'];
-      var harganomral = json[i]['Harga'];
+      var harganormal = json[i]['Harga'];
       var dataDiskon = json[i]['Diskon'];
       var keterangan = json[i]['Keterangan'];
       var status = json[i]['Status'];
