@@ -110,7 +110,43 @@ $.getJSON(linkdata, function(data) {
     var html = "";
     for (i=0; i < json.length; i++){
       var image = json[i]['Gambar Produk'];
-      console.log(image);
+      var nama = json[i]['Nama Produk'];
+      var harganomral = json[i]['Harga'];
+      var dataDiskon = json[i]['Diskon'];
+      var keterangan = json[i]['Keterangan'];
+      var status = json[i]['Status'];
+      var diskon = Math.round(0 + dataDiskon);
+      var harga = harganormal;
+      if (diskon < 100) {
+        var hitungdiskon = Math.round((harga * diskon) / 100);
+      } else if (diskon > 101) {
+        var hitungdiskon = diskon;
+      }
+      var price = harga - hitungdiskon;
+      var strike = harga;
+      if (diskon != null && diskon != 0) {
+        var htmlprice = '<div class="popular-price"><span class="item_price">'+price+'</span><span class="strike">'+strike+'</span></div>';
+        if (diskon < 100) {
+          var htmldiskon = '<div class="diskon">'+diskon+'%</div>';
+        }
+      } else {
+        var htmlprice = '<div class="popular-price"><span class="item_price">'+price+'</span></div>';
+        var htmldiskon = "";
+      }
+      if (status == "off"){
+        var tombol = '<button class="popular-button">Habis</button>';
+      } else {
+        var tombol = '<a href="javascript:;" class="item_add"><i class="ri-shopping-bag-line"></i></a>';
+      }
+      html += '<article class="popular-card">';
+      html += '<img class="popular-image" src="'+image+'" alt="'+nama+'" width="230" height="230"/>';
+      html += '<h3 class="popular-name">'+nama+'</h3>';
+      html += '<div class="popular-description">'+keterangan+'</div>';
+      html += htmlprice;
+      html += htmldiskon;
+      html += tombol;
+      html += '</article>';
     }
+    $("#htmlproduk").html(html);
   }
 });
