@@ -1,3 +1,7 @@
+/* ==== GENERAL SETTING */
+let linkdatabase = "https://script.google.com/macros/s/AKfycbybPXXhGj6ObLYmxbdnIa2cbiircfVfpOmlxJDC58tbRmI-qjgylokXLaf1jAIm73Sszg/exec";
+let nomorAdmin = "6289677337414";
+
 /*=============== SHOW MENU ===============*/
 const navMenu = document.getElementById('nav-menu'),
   navToggle = document.getElementById('nav-toggle'),
@@ -122,3 +126,16 @@ sr.reveal(`.about__img, .recently__img`, {
 sr.reveal(`.popular__card`, {
   interval: 100
 })
+
+/* ==== SHOW PRODUCT */
+var linkdata = linkdatabase + "?action=readproduk";
+$.getJSON(linkdata, function(data) {
+  if (data){
+    var json = data.records;
+    var html = "";
+    for (i=0; i < json.length; i++){
+      var image = json[i]['Gambar Produk'];
+      console.log(image);
+    }
+  }
+});
