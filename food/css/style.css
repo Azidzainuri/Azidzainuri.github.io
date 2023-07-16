@@ -761,6 +761,7 @@ body.dark-theme {
 .popular-card {
     position: relative;
     width: 250px;
+    height: 250px;
     background-color: var(--container-color);
     padding: 7.5rem 2rem 2rem;
     margin: auto;
