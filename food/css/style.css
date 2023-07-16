@@ -734,15 +734,30 @@ body.dark-theme {
     display: grid;
     column-gap: 3.5rem;
     padding-block: 6rem 4rem;
-    padding-top: 4rem;
     justify-content: center;
     row-gap: 5.5rem;
+}
+.html-produk .owl-stage-outer {
+    padding-top: 4rem;
+}
+.html-produk .owl-nav button.owl-prev, .html-produk .owl-nav button.owl-next {
+    background: var(--container-color);
+    width: 30px;
+    height: 30px;
+    fill: var(--first-color);
+    color: var(--first-color);
+    box-shadow: 0 4px 12px hsla(19, 64%, 24%, .1);
+    opacity: 1;
+}
+.html-produk .owl-nav button.owl-prev.disabled, .html-produk .owl-nav button.owl-next.disabled {
+    display: none;
 }
 .popular-card {
     position: relative;
     width: 250px;
     background-color: var(--container-color);
     padding: 7.5rem 2rem 2rem;
+    margin: auto;
     box-shadow: 0 8px 20px hsla(19, 64%, 48%, .08);
     border-radius: 1.5rem;
     text-align: center;
