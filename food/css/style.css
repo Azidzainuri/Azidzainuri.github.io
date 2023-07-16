@@ -325,6 +325,26 @@ img {
   cursor: pointer;
   transition: color 0.3s;
 }
+.button-cart {
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+    color: var(--title-color);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+.button-cart span {
+    position: absolute;
+    top: 18px;
+    font-size: 0.75rem;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    line-height: normal;
+    background-color: var(--first-color);
+    color: #fff;
+    border-radius: 50%;
+}
 
 /*========== Variables Dark theme ==========*/
 body.dark-theme {
