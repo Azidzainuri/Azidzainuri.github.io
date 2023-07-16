@@ -137,14 +137,14 @@ $.getJSON(linkdata, function(data) {
         var htmldiskon = "";
       }
       if (status == "off"){
-        var tombol = '<button class="popular-button">Habis</button>';
+        var tombol = '<button class="popular-button off"><i class="ri-shopping-bag-line"></i></button>';
       } else {
-        var tombol = '<a href="javascript:;" class="item_add"><i class="ri-shopping-bag-line"></i></a>';
+        var tombol = '<a href="javascript:;" class="item_add popular-button"><i class="ri-shopping-bag-line"></i></a>';
       }
-      html += '<article class="popular-card">';
-      html += '<img class="popular-image" src="'+image+'" alt="'+nama+'" width="230" height="230"/>';
-      html += '<h3 class="popular-name">'+nama+'</h3>';
-      html += '<div class="popular-description">'+keterangan+'</div>';
+      html += '<article class="popular-card simpleCart_shelfItem">';
+      html += '<img class="popular-image item_thumb" src="'+image+'" alt="'+nama+'" width="230" height="230"/>';
+      html += '<h3 class="popular-name item_name">'+nama+'</h3>';
+      html += '<div class="popular-description item_size">'+keterangan+'</div>';
       html += htmlprice;
       html += htmldiskon;
       html += tombol;
