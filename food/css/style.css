@@ -801,6 +801,22 @@ body.dark-theme {
 .popular-button:hover {
   background-color: var(--first-color-alt);
 }
+.popular-card .diskon {
+    display: flex;
+    background-color: var(--first-color);
+    padding: 6px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 20px hsla(19, 64%, 20%, .2);
+    position: absolute;
+    bottom: 1.25rem;
+    left: 1.25rem;
+    cursor: pointer;
+    transition: background .3s;
+}
 
 /*=============== RECENTLY ===============*/
 .recently {
