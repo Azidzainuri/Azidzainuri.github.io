@@ -115,8 +115,9 @@ $.getJSON(linkdata, function(data) {
       var dataDiskon = json[i]['Diskon'];
       var keterangan = json[i]['Keterangan'];
       var status = json[i]['Status'];
-      var diskon = Math.round(0 + dataDiskon);
-      var harga = harganormal;
+      var diskon = dataDiskon*1;
+      console.log(diskon);
+      var harga = harganormal*1;
       if (diskon < 100) {
         var hitungdiskon = Math.round((harga * diskon) / 100);
       } else if (diskon > 101) {
@@ -128,6 +129,8 @@ $.getJSON(linkdata, function(data) {
         var htmlprice = '<div class="popular-price"><span class="item_price">'+price+'</span><span class="strike">'+strike+'</span></div>';
         if (diskon < 100) {
           var htmldiskon = '<div class="diskon">'+diskon+'%</div>';
+        } else {
+          var htmldiskon = "";
         }
       } else {
         var htmlprice = '<div class="popular-price"><span class="item_price">'+price+'</span></div>';
