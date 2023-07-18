@@ -1537,14 +1537,14 @@ body.dark-theme {
     grid-template-columns: repeat(3, max-content);
   }
 }
-@media screen and (min-width: 767){
+@media screen and (min-width: 767px){
   .popular__container {
     grid-template-columns: repeat(3, 262px);
     column-gap: 3.5rem;
     padding-block: 6rem 4rem;
   }
 }
-@media screen and (min-width: 351) {
+@media screen and (min-width: 351px) {
   .popular__container {
     grid-template-columns: repeat(2, 250px);
   }
