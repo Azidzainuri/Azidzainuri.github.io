@@ -1877,7 +1877,7 @@ simpleCart({
 	currency: "IDR",
 });
 
-$(".button-cart,.button-close, .shopping-again").click(function(){
+$(".button-cart,.button-close, .shopping-again, .button-checkout").click(function(){
   $(".box-belanja").slideToggle("normal");
   return false;
 });
