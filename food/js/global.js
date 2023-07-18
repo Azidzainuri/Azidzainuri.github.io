@@ -846,8 +846,8 @@ $(".keranjang-kosong").text("keranjang Anda masih kosong!");
                         label,
                         x,
                         xlen;
-                       $(".ck-btn,.harga-total,#total-harga").hide();
-                       $(".keranjang-kosong").show();
+                       $(".button-option,.keranjang-box .harga-total").hide();
+                       $(".empty-cart").show();
 
                     container.html(" ").append(cart_container);
 
@@ -885,8 +885,8 @@ $(".keranjang-kosong").text("keranjang Anda masih kosong!");
                         klass,
                         content,
                         cell;
-                    $(".empty-cart,.keranjang-kosong").hide();
-                    $(".ck-btn,.harga-total,#total-harga").show();
+                    $(".empty-cart").hide();
+                    $(".button-option,.keranjang-box .harga-total").show();
 
                     container.append(row);
 
@@ -1252,39 +1252,9 @@ $(".keranjang-kosong").text("keranjang Anda masih kosong!");
                 if (simpleCart.has(item)) {
                     notification(gagal + "Produk ini sudah tersedia di keranjang Anda");
                     return false;
-	            } else {
-                    cekProduk='';
-                    checkProduk=JSON.parse(localStorage.getItem('simpleCart_items'));
-                    checkProduk=Object.values(checkProduk);
-                    checkProduk.forEach((item,i)=>{
-                       cekProduk+=item.produk+',';
-                    });
-                    var resetProduk = cekProduk.replace(/,\s*$/, "");
-                    var splitProduk = resetProduk.split(",");
-                    var arrayProduk = [...new Set(splitProduk)];
-                    var produkUtama = arrayProduk[0];
-                    var itemProduk = $(".belibeli-widget-detail .detail-produk .info-produk .produk-inpost").text();
-                    if (itemProduk != produkUtama && produkUtama != "") {
-                       notification(gagal + "Jenis produk tidak sama (Produk " + produkUtama + "), silahkan Anda checkout terlebih dahulu untuk membeli produk ini");
-                       return false;
-                    } else if (produkUtama == itemProduk || produkUtama == "") {
+		} else {
                     notification(berhasil + "Produk berhasil ditambahkan");
-                    var lazypixel = false;
-                    window.addEventListener(
-                      "scroll",
-                      function () {
-                          if ((document.documentElement.scrollTop != 0 && lazypixel === false) || (document.body.scrollTop != 0 && lazypixel === false)) {
-                      (function () {
-                        fbq("track", "AddToCart");
- 
-                        fbq("track", "ViewContent");
-                      })();
-                      lazypixel = true;
-                         }
-                      },
-                      true
-                   );
-                  }
+		    return true;
                 }
             });
 
