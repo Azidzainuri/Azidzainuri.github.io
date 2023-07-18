@@ -1537,7 +1537,18 @@ body.dark-theme {
     grid-template-columns: repeat(3, max-content);
   }
 }
-
+@meida screen and (min-width: 901){
+  .popular__container {
+    grid-template-columns: repeat(3, 262px);
+    column-gap: 3.5rem;
+    padding-block: 6rem 4rem;
+  }
+}
+@media screen and (min-width: 351) {
+  .popular__container {
+    grid-template-columns: repeat(2, 250px);
+  }
+}
 @media screen and (min-width: 767px) {
   .nav {
     column-gap: 3rem;
@@ -1562,11 +1573,6 @@ body.dark-theme {
   .dark-theme .nav__menu {
     box-shadow: none;
   }
-
-  .popular__container {
-    grid-template-columns: repeat(2, 250px);
-  }
-
   .footer__content {
     grid-template-columns: repeat(4, max-content);
   }
@@ -1644,12 +1650,6 @@ body.dark-theme {
 
   .about__img {
     width: 450px;
-  }
-
-  .popular__container {
-    grid-template-columns: repeat(3, 262px);
-    column-gap: 3.5rem;
-    padding-block: 6rem 4rem;
   }
 
   .popular__card {
