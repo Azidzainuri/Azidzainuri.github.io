@@ -171,6 +171,7 @@ $.getJSON(linkdata, function(data) {
   if (data){
     var json = data.records;
     var html = "";
+    var htmlproduk = "";
     for (i=0; i < json.length; i++){
       var image = json[i]['Gambar Produk'];
       var nama = json[i]['Nama Produk'];
@@ -179,7 +180,6 @@ $.getJSON(linkdata, function(data) {
       var keterangan = json[i]['Keterangan'];
       var status = json[i]['Status'];
       var diskon = dataDiskon*1;
-      console.log(diskon);
       var harga = harganormal*1;
       if (diskon < 100) {
         var hitungdiskon = Math.round((harga * diskon) / 100);
@@ -190,6 +190,7 @@ $.getJSON(linkdata, function(data) {
       var strike = harga;
       if (diskon != null && diskon != 0) {
         var htmlprice = '<div class="popular-price"><span class="item_price">'+angkaToRp(price)+'</span><span class="strike">'+angkaToRp(strike)+'</span></div>';
+        var htmlpriceproduk = '<div class="popular__price"><span class="item_price">'+angkaToRp(price)+'</span><span class="strike">'+angkaToRp(strike)+'</span></div>';
         if (diskon < 100) {
           var htmldiskon = '<div class="diskon">'+diskon+'%</div>';
         } else {
@@ -197,12 +198,15 @@ $.getJSON(linkdata, function(data) {
         }
       } else {
         var htmlprice = '<div class="popular-price"><span class="item_price">'+angkaToRp(price)+'</span></div>';
+	var htmlpriceproduk = '<div class="popular__price"><span class="item_price">'+angkaToRp(price)+'</span></div>';      
         var htmldiskon = "";
       }
       if (status == "off"){
         var tombol = '<button class="popular-button off"><i class="ri-shopping-bag-line"></i></button>';
+	var tombolproduk = '<button class="popular__button off"><i class="ri-shopping-bag-line"></i></button>';      
       } else {
         var tombol = '<a href="javascript:;" class="item_add popular-button"><i class="ri-shopping-bag-line"></i></a>';
+	var tombolproduk = '<a href="javascript:;" class="item_add popular__button"><i class="ri-shopping-bag-line"></i></a>';
       }
       html += '<article class="popular-card simpleCart_shelfItem">';
       html += '<img class="popular-image item_thumb" src="'+image+'" alt="'+nama+'" width="230" height="230"/>';
@@ -212,8 +216,18 @@ $.getJSON(linkdata, function(data) {
       html += htmldiskon;
       html += tombol;
       html += '</article>';
+
+      htmlproduk += '<article class="popular__card simpleCart_shelfItem">';
+      htmlproduk += '<img class="popular__image item_thumb" src="'+image+'" alt="'+nama+'" width="230" height="230"/>';
+      htmlproduk += '<h3 class="popular__name item_name">'+nama+'</h3>';
+      htmlproduk += '<div class="popular__description item_size">'+keterangan+'</div>';
+      htmlproduk += htmlpriceproduk;
+      htmlproduk += htmldiskon;
+      htmlproduk += tombolproduk;
+      htmlproduk += '</article>';
     }
     $("#htmlproduk").html(html);
+    $("#list-produk").html(html);  
     $("#htmlproduk").owlCarousel({
         stagePadding: 0,
         loop: false,
