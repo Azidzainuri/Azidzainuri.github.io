@@ -2000,6 +2000,7 @@ $("#button-checkot").click(function(){
     if (catatan != ""){
        checkoutWA += "\n=========================\n📌 *CATATAN*\n=========================\nCatatan: " + catatan + "\n";
     }
+    checkoutWA += "\nLink: " + window.location.href;
     var walink = 'https://api.whatsapp.com/send';
     var whatsapp = walink + "?phone=" + nomorAdmin + "&text=" + encodeURIComponent(checkoutWA);
     window.open(whatsapp,'_blank');
