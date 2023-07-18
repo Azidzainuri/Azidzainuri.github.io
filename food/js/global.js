@@ -1992,7 +1992,7 @@ $("#button-checkot").click(function(){
     checkoutWA += "▪️ *Alamat*: " + alamat + "\n";
     checkoutWA += "▪️ *Pengiriman*: COD - " + $("#pengiriman :selected").text() + "\n";
     checkoutWA += "▪️ *Pembayaran*: " + pembayaran + "\n\n";
-    checkoutWA += "=========================\n*DATA PRODUK*\n=========================\n"
+    checkoutWA += "=========================\n🛒 *DATA PRODUK*\n=========================\n"
     checkoutWA += cartItem_checkout;
     checkoutWA += "🏷 *Total Harga:* " + angkaToRp(harga) + "\n";  
     checkoutWA += "📦 *Ongkos Kirim:* " + angkaToRp(ongkir) + "\n";
