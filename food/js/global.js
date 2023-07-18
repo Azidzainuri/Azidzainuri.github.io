@@ -1,6 +1,11 @@
 /* ==== GENERAL SETTING */
 let linkdatabase = "https://script.google.com/macros/s/AKfycbybPXXhGj6ObLYmxbdnIa2cbiircfVfpOmlxJDC58tbRmI-qjgylokXLaf1jAIm73Sszg/exec";
 let nomorAdmin = "6289677337414";
+let opsipembayaran = [
+	{"bank": "BCA", "norek": "0809809809 a/n Azid Zainuri"},
+	{"bank": "BNI", "norek": "0809809809 a/n Azid Zainuri"},
+	{"bank": "BRI", "norek": "0809809809 a/n Azid Zainuri"},
+];
 
 /*=============== SHOW MENU ===============*/
 const navMenu = document.getElementById('nav-menu'),
@@ -164,6 +169,28 @@ function formatInvoice(date,inv) {
         invoice = code+day.toString()+(month+1)+year+hour.toString()+minute.toString()+second.toString();
     return invoice;
 }
+
+/* ===== OPSI PEMBAYARAN ===== */
+var htmlpembayaran = '<option value="default">Pilih Pembayaran</option>';
+for (i=0; i < opsipembayaran.length; i++){
+	var value = opsipembayaran[i].bank + " - " + opsipembayaran[i].norek;
+	var text = opsipembayaran[i].bank;
+	htmlpembayaran += '<option value="'+value+'">'+text+'</option>';
+}
+$("#pembayaran").html(htmlpembayaran);
+
+/* ====== OPSI ONGKOS KIRIM DAERAH ==== */
+var linkdaerah = linkdatabase + "?action=readongkir";
+$.getJSON(linkdaerah, function(data) {
+    if (data){
+	var json = data.records;
+	var htmldaerah = '<option value="default">Pilih Daerah</option>';
+	for (i=0; i < json.length; i++){
+	   htmldaerah += '<option value="'+json[i].['Ongkos Kirim']+'">'+json[i]['Nama Daerah']+'</option>';
+	}
+	$("#pengiriman").html(htmldaerah);
+    }	
+});
 
 /* ==== SHOW PRODUCT */
 var linkdata = linkdatabase + "?action=readproduk";
@@ -1876,6 +1903,15 @@ simpleCart({
     },
 });
 
+$("#pengiriman").on("change", function () {
+    simpleCart.update();
+});
+simpleCart({
+    shippingCustom: function () {
+        return $("#pengiriman").find(":selected").val() / 1;
+    },
+});
+
 simpleCart({
 	cartColumns: [
 { attr: "thumb", label: false, view: "image" },
@@ -1926,7 +1962,9 @@ $("#button-checkot").click(function(){
     var date = new Date();
     var invoice = formatInvoice(date,"INV");
     var tanggal = formatTanggal(date);
-    var total = $("#totalharga").attr("data-harga");
+    var harga = $("#totalharga").attr("data-harga");
+    var ongkir = $("#pengiriman :selected").val();
+    var total = $("#totalpembayaran").attr("data-total");
     var catatan = $("#catatan").val();
     cartItem_checkout='';
     counter_checkout=1;
@@ -1952,10 +1990,12 @@ $("#button-checkot").click(function(){
     checkoutWA += "Nama: " + nama + "\n";    
     checkoutWA += "Nomor HP: " + nomor + "\n";
     checkoutWA += "Alamat: " + alamat + "\n";
-    checkoutWA += "Pengiriman: " + pengiriman + "\n";
+    checkoutWA += "Pengiriman: COD - " + $("#pengiriman :selected").text() + "\n";
     checkoutWA += "Pembayaran: " + pembayaran + "\n\n";
     checkoutWA += "=========================\n*DATA PRODUK*\n=========================\n"
     checkoutWA += cartItem_checkout;
+    checkoutWA += "*Total Harga:* " + angkaToRp(harga) + "\n";  
+    checkoutWA += "*Ongkos Kirim:* " + angkaToRp(ongkir) + "\n";
     checkoutWA += "*Total Pembayaran:* " + angkaToRp(total) + "\n";
     if (catatan != ""){
        checkoutWA += "\n=========================\n*CATATAN*\n=========================\nCatatan: " + catatan + "\n";
