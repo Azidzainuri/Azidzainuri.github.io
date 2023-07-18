@@ -1,5 +1,5 @@
 /* ==== GENERAL SETTING */
-let linkdatabase = "https://script.google.com/macros/s/AKfycbybPXXhGj6ObLYmxbdnIa2cbiircfVfpOmlxJDC58tbRmI-qjgylokXLaf1jAIm73Sszg/exec";
+let linkdatabase = "https://script.google.com/macros/s/AKfycbzisGE2drdwMX-17i4Dn0PKQuTH0O6Gw0uMC5jN5_QYfY9hUrn9wlrVSbe5bLDNO-xgrA/exec";
 let nomorAdmin = "6289677337414";
 let opsipembayaran = [
 	{"bank": "BCA", "norek": "0809809809 a/n Azid Zainuri"},
