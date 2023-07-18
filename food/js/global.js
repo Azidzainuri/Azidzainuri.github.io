@@ -186,7 +186,7 @@ $.getJSON(linkdaerah, function(data) {
 	var json = data.records;
 	var htmldaerah = '<option value="default">Pilih Daerah</option>';
 	for (i=0; i < json.length; i++){
-	   htmldaerah += '<option value="'+json[i].['Ongkos Kirim']+'">'+json[i]['Nama Daerah']+'</option>';
+	   htmldaerah += '<option value="'+json[i]['Ongkos Kirim']+'">'+json[i]['Nama Daerah']+'</option>';
 	}
 	$("#pengiriman").html(htmldaerah);
     }	
