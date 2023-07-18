@@ -887,7 +887,7 @@ $(".keranjang-kosong").text("keranjang Anda masih kosong!");
                         label,
                         x,
                         xlen;
-                       $(".button-option,.keranjang-box .harga-total").hide();
+                       $(".button-option,.keranjang-box .harga-total, .box-checkout").hide();
                        $(".empty-cart").show();
 
                     container.html(" ").append(cart_container);
