@@ -1971,34 +1971,34 @@ $("#button-checkot").click(function(){
     sheetItems=JSON.parse(localStorage.getItem('simpleCart_items'));
     sheetItems=Object.values(sheetItems);
     sheetItems.forEach((item,i)=>{
-    cartItem_checkout+=counter_checkout+'. '+item.name+'\n';
+    cartItem_checkout+='*' + counter_checkout+'. '+item.name+'*\n';
     if(item.size!=undefined){
-    cartItem_checkout+=item.size+'\n';
+    cartItem_checkout+=' ▪️ '+item.size+'\n';
     }
-    cartItem_checkout+="Harga: "+angkaToRp(item.price)+'\n';
-    cartItem_checkout+="Jumlah: "+item.quantity+'\n';
-    cartItem_checkout+="Sub Total: "+angkaToRp(item.price*item.quantity)+'\n';
+    cartItem_checkout+=" ▪️ Harga: "+angkaToRp(item.price)+'\n';
+    cartItem_checkout+=" ▪️ Jumlah: "+item.quantity+'\n';
+    cartItem_checkout+=" ▪️ Sub Total: "+angkaToRp(item.price*item.quantity)+'\n';
     cartItem_checkout+="\n=========================\n";
     cartItem_checkout+='\n';
     counter_checkout++;
     });
 
     var checkoutWA = "";
-    checkoutWA += "=========================\n*DATA PEMBELI*\n=========================\n";
-    checkoutWA += "Tanggal Order: " + tanggal + "\n";
-    checkoutWA += "Invoice: " + invoice + "\n";
-    checkoutWA += "Nama: " + nama + "\n";    
-    checkoutWA += "Nomor HP: " + nomor + "\n";
-    checkoutWA += "Alamat: " + alamat + "\n";
-    checkoutWA += "Pengiriman: COD - " + $("#pengiriman :selected").text() + "\n";
-    checkoutWA += "Pembayaran: " + pembayaran + "\n\n";
+    checkoutWA += "=========================\n👜 *DATA PEMBELI*\n=========================\n";
+    checkoutWA += "▪️ *Tanggal Order*: " + tanggal + "\n";
+    checkoutWA += "▪️ *Invoice*: " + invoice + "\n";
+    checkoutWA += "▪️ *Nama*: " + nama + "\n";    
+    checkoutWA += "▪️ *Nomor HP*: " + nomor + "\n";
+    checkoutWA += "▪️ *Alamat*: " + alamat + "\n";
+    checkoutWA += "▪️ *Pengiriman*: COD - " + $("#pengiriman :selected").text() + "\n";
+    checkoutWA += "▪️ *Pembayaran*: " + pembayaran + "\n\n";
     checkoutWA += "=========================\n*DATA PRODUK*\n=========================\n"
     checkoutWA += cartItem_checkout;
-    checkoutWA += "*Total Harga:* " + angkaToRp(harga) + "\n";  
-    checkoutWA += "*Ongkos Kirim:* " + angkaToRp(ongkir) + "\n";
-    checkoutWA += "*Total Pembayaran:* " + angkaToRp(total) + "\n";
+    checkoutWA += "🏷 *Total Harga:* " + angkaToRp(harga) + "\n";  
+    checkoutWA += "📦 *Ongkos Kirim:* " + angkaToRp(ongkir) + "\n";
+    checkoutWA += "🔖 *Total Pembayaran:* " + angkaToRp(total) + "\n";
     if (catatan != ""){
-       checkoutWA += "\n=========================\n*CATATAN*\n=========================\nCatatan: " + catatan + "\n";
+       checkoutWA += "\n=========================\n📌 *CATATAN*\n=========================\nCatatan: " + catatan + "\n";
     }
     var walink = 'https://api.whatsapp.com/send';
     var whatsapp = walink + "?phone=" + nomorAdmin + "&text=" + encodeURIComponent(checkoutWA);
