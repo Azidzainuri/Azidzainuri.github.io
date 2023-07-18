@@ -1891,7 +1891,7 @@ $("#button-checkot").click(function(){
   var nama = $("#nama").val();
   var nomor = $("#nomor").val();
   var alamat = $("#alamat").val();
-  var pengiriman = $("#kurir :selected").val();
+  var pengiriman = $("#pengiriman :selected").val();
   var pembayaran = $("#pembayaran :selected").val();
   if (nama == ""){
     notification("Nama diperlukan");
@@ -1938,7 +1938,7 @@ $("#button-checkot").click(function(){
     checkoutWA += "Nama: " + nama + "\n";    
     checkoutWA += "Nomor HP: " + nomor + "\n";
     checkoutWA += "Alamat: " + alamat + "\n";
-    checkoutWA += "Kurir: via " + pengiriman + "\n";
+    checkoutWA += "Pengiriman: " + pengiriman + "\n";
     checkoutWA += "Pembayaran: " + pembayaran + "\n\n";
     checkoutWA += "=========================\n*DATA PRODUK*\n=========================\n"
     checkoutWA += cartItem_checkout;
