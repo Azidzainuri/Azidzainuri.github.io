@@ -1537,7 +1537,7 @@ body.dark-theme {
     grid-template-columns: repeat(3, max-content);
   }
 }
-@meida screen and (min-width: 767){
+@media screen and (min-width: 767){
   .popular__container {
     grid-template-columns: repeat(3, 262px);
     column-gap: 3.5rem;
