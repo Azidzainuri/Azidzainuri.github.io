@@ -2011,3 +2011,15 @@ $("#button-checkot").click(function(){
     return false;
   }
 });
+
+$("#button-pesan").click(function(){
+   var pesan = $(".newsletter__input").val();
+   if (pesan == ""){
+      notification("Silahkan isi pesan dahulu");
+      return false;
+   } else {
+      var walink = 'https://api.whatsapp.com/send';
+      var whatsapp = walink + "?phone=" + nomorAdmin + "&text=" + encodeURIComponent(pesan + "\n\n Link: " + window.location.href);
+      window.open(whatsapp,'_blank');
+   }
+});
