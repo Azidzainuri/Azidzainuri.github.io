@@ -638,6 +638,13 @@ body.dark-theme {
   transform: translateX(0.25rem);
 }
 
+.button-next {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
 /*=============== ABOUT ===============*/
 .about {
   position: relative;
