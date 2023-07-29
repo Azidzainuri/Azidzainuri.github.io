@@ -153,13 +153,12 @@
 
       /*backward btn (previous)*/
       backward_btn.addEventListener('click', function(){
-        if (index_no == 0) {
-          index_no = All_song.length-1;
-          console.log()
+        index_no = index_no - 1;
+        if (index_no <= 0){
+          index_no = 0;
           song[index_no + 1].pause();
         } else {
           song[index_no + 1].pause();
-          index_no = index_no - 1;
         }
         song[index_no].currentTime = 0;
         play_song();
