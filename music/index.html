@@ -191,23 +191,23 @@
   <script>
     let All_song = [
    {
-     name: "Jalan Terbaik",
-     path: "music/1.mp3",
+     color: "#1fafa7",
+     music: "music/1.mp3",
      img: "images/1.png"
    },
    {
-     name: "Aku Masih Sayang",
-     path: "music/2.mp3",
+     color: "#256663",
+     music: "music/2.mp3",
      img: "images/2.png"
    },
    {
-     name: "Jangan Pernah Berubah",
-     path: "music/3.mp3",
+     color: "#1cddd4",
+     music: "music/3.mp3",
      img: "images/3.png"
    },
    {
-     name: "PUSPA",
-     path: "music/4.mp3",
+     color: "#4c817e",
+     music: "music/4.mp3",
      img: "images/4.png"
    },
       ];
@@ -219,7 +219,7 @@
       let htmlbox = "";
       for (let i = 0; i < All_song.length; i++) {
         htmlbox += '<div class="song">';
-        htmlbox += '<audio src="' + url_upload + All_song[i].path + '" class="play-music"></audio>';
+        htmlbox += '<audio src="' + url_upload + All_song[i].music + '" class="play-music"></audio>';
         htmlbox += '</div>';
       }
       boxmusic.innerHTML = htmlbox;
@@ -238,12 +238,20 @@
       /*play function*/
       function play_song(){
         var css_saldo = document.querySelector(".box-saldo");
-        var image = 'background-image: url('+url_upload+All_song[index_no].img+')';
+        var css_button = document.querySelector(".box-button");
+        var css_bottom = document.querySelectorAll(".bottom-inbox .bottom-button");
+        var style_image = 'background-image: url('+url_upload+All_song[index_no].img+')';
+        var style_button = 'background:'+All_song[index_no].color;
+        var style_bottom = 'border: solid 2px '+All_song[index_no].color;
         song[index_no].play();
         is_song_played = true;
         song_status = true;
         play_pause_btn.innerHTML = '<i class="fa fa-pause" aria-hidden="true"></i>';
-        css_saldo.setAttribute("style",image)
+        css_saldo.setAttribute("style",style_image);
+        css_button.setAttribute("style",style_button);
+        for (var a = 0; a < css_bottom.length; a++) {
+          css_bottom[a].setAttribute("style",style_bottom);
+        }
       }
 
       /*pause song*/
