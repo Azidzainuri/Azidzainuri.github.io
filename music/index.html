@@ -101,8 +101,8 @@
       let boxmusic = document.querySelector('.box-music');
       let htmlbox = "";
       for (let i = 0; i < All_song.length; i++) {
-        htmlbox += '<div class="song" data-img="' + All_song[i].img + '">';
-        htmlbox += '<audio src="https://kolomilmu.com/experiment/' + All_song[i].path + '" class="play-music"></audio>';
+        htmlbox += '<div class="song">';
+        htmlbox += '<audio src="https://kolomilmu.com/experiment/' + All_song[i].path + '" data-img="' + All_song[i].img + '" class="play-music"></audio>';
         htmlbox += '</div>';
       }
       boxmusic.innerHTML = htmlbox;
