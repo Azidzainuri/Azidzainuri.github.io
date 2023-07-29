@@ -1,69 +1,77 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-    <title>Audio player</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'poppins',sans-serif;
-}
-.box-button {
-    position: relative;
-    display: block;
-    padding: 10px;
-    margin: 10px auto;
-    background: #673AB7;
-    width: 100%;
-    max-width: 300px;
-    border-radius: 30px;
-}
-.controlls_btns {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.controlls_btns button {
-    height: 50px;
-    width: 50px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    margin: 0 0.5em;
-    background: none;
-    transition: 0.5s;
-    border-radius: 50%;
-}
-.controlls_btns button i {
-    font-size: 1.3em;
-}
-.controlls_btns button i {
-    color: #fff;
-}
-.controlls_btns button:nth-child(2) {
-    border-radius: 50%;
-    box-shadow: inset 5px 5px 5px rgba(0,0,0,0.2), inset -5px -5px 15px rgba(255,255,255,0.1), 5px 5px 15px rgba(0,0,0,0.3), -5px -5px 15px rgba(255,255,255,0.1);
-}
-    </style>
-  </head>
-  <body>
-    <div class="box-button">
-      <div class="controlls_btns">
-        <button id="backward_btn"><i class="fa fa-step-backward" aria-hidden="true"></i></button>
-        <button id="play_pause_btn"><i class="fa fa-play" aria-hidden="true"></i></button>
-        <button id="forward_btn"><i class="fa fa-step-forward" aria-hidden="true"></i></button>
-      </div>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <title>Audio player</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'poppins', sans-serif;
+    }
+
+    .box-button {
+      position: relative;
+      display: block;
+      padding: 10px;
+      margin: 10px auto;
+      background: #673AB7;
+      width: 100%;
+      max-width: 300px;
+      border-radius: 30px;
+    }
+
+    .controlls_btns {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .controlls_btns button {
+      height: 50px;
+      width: 50px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      margin: 0 0.5em;
+      background: none;
+      transition: 0.5s;
+      border-radius: 50%;
+    }
+
+    .controlls_btns button i {
+      font-size: 1.3em;
+    }
+
+    .controlls_btns button i {
+      color: #fff;
+    }
+
+    .controlls_btns button:nth-child(2) {
+      border-radius: 50%;
+      box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2), inset -5px -5px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box-button">
+    <div class="controlls_btns">
+      <button id="backward_btn"><i class="fa fa-step-backward" aria-hidden="true"></i></button>
+      <button id="play_pause_btn"><i class="fa fa-play" aria-hidden="true"></i></button>
+      <button id="forward_btn"><i class="fa fa-step-forward" aria-hidden="true"></i></button>
     </div>
-    <div class="box-music"></div>
-    <script>
-      let All_song = [
+  </div>
+  <div class="box-music"></div>
+  <script>
+    let All_song = [
    {
      name: "Jalan Terbaik",
      path: "music/1.mp3",
@@ -93,9 +101,9 @@
       let boxmusic = document.querySelector('.box-music');
       let htmlbox = "";
       for (let i = 0; i < All_song.length; i++) {
-        htmlbox += `<div class="song" data-img="${All_song[i].img}" data-id="${i}">
-        <audio src="https://kolomilmu.com/experiment/${All_song[i].path}" class="play-music"></audio>
-        </div>`;
+        htmlbox += '<div class="song" data-img="' + All_song[i].img + '">';
+        htmlbox += '<audio src="https://kolomilmu.com/experiment/' + All_song[i].path + '" class="play-music"></audio>';
+        htmlbox += '</div>';
       }
       boxmusic.innerHTML = htmlbox;
 
@@ -163,6 +171,6 @@
         song[index_no].currentTime = 0;
         play_song();
       });
-    </script>
-  </body>
+  </script>
+</body>
 </html>
