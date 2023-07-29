@@ -65,41 +65,29 @@
     <script>
       let All_song = [
    {
-     name: "Make Me Move",
+     name: "Jalan Terbaik",
      path: "music/1.mp3",
      img: "images/1.jpg",
      singer: "NoCopyrightSounds [NCS]"
    },
    {
-     name: "Beauz & Jvna - Crazy",
+     name: "Aku Masih Sayang",
      path: "music/2.mp3",
      img: "images/2.jpg",
      singer: "NoCopyrightSounds"
    },
    {
-     name: "Skydive -Loxbeats",
+     name: "Jangan Pernah Berubah",
      path: "music/3.mp3",
      img: "images/3.jpg",
      singer: "Audio Library"
    },
    {
-     name: "Shahed -Indian Fusion",
+     name: "PUSPA",
      path: "music/4.mp3",
      img: "images/4.jpg",
      singer: "imshahed"
    },
-   {
-     name: "Syn Cole - Feel Good",
-     path: "music/5.mp3",
-     img: "images/5.jpg",
-     singer: "NoCopyrightSounds"
-   },
-   {
-    name: "Yusuf Alev - Yoros",
-    path: "music/6.mp3",
-    img: "images/1.jpg",
-    singer: "Magic Free Release"
-   }
       ];
       // box music
       let boxmusic = document.querySelector('.box-music');
@@ -122,9 +110,23 @@
       let song_status = false;
       let index_no = 0;
 
+      /*play function*/
+      function play_song(){
+        song[index_no].play();
+        is_song_played = true;
+        song_status = true;
+        play_pause_btn.innerHTML = '<i class="fa fa-pause" aria-hidden="true"></i>';
+      }
+
+      /*pause song*/
+      function pause_song(){
+        song[index_no].pause();
+        song_status = false;
+        play_pause_btn.innerHTML = '<i class="fa fa-play" aria-hidden="true"></i>';
+      }
+      
       /*play pause btn Music player*/
       play_pause_btn.addEventListener('click', function(){
-        console.log(song_status);
         if (song_status == false) {
           song[index_no].play();
           song_status = true;
@@ -135,14 +137,30 @@
           this.innerHTML = '<i class="fa fa-play" aria-hidden="true"></i>';
         }
       });
+      
       /*forward btn (next)*/
       forward_btn.addEventListener('click', function(){
         index_no = index_no + 1;
-        console.log(index_no);
         if (index_no == All_song.length) {
+          song[index_no - 1].pause();
           index_no = 0;
+        } else {
+          song[index_no - 1].pause();
         }
-        console.log(song[index_no]);
+        song[index_no].currentTime = 0;
+        play_song();
+      });
+
+      /*backward btn (previous)*/
+      backward_btn.addEventListener('click', function(){
+        if (index_no == 0) {
+          index_no = All_song.length-1;
+          console.log()
+          song[index_no + 1].pause();
+        } else {
+          song[index_no + 1].pause();
+          index_no = index_no - 1;
+        }
         song[index_no].currentTime = 0;
         play_song();
       });
