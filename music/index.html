@@ -135,6 +135,17 @@
           this.innerHTML = '<i class="fa fa-play" aria-hidden="true"></i>';
         }
       });
+      /*forward btn (next)*/
+      forward_btn.addEventListener('click', function(){
+        index_no = index_no + 1;
+        console.log(index_no);
+        if (index_no == All_song.length) {
+          index_no = 0;
+        }
+        console.log(song[index_no]);
+        song[index_no].currentTime = 0;
+        play_song();
+      });
     </script>
   </body>
 </html>
