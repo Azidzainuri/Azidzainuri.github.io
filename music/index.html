@@ -9,55 +9,159 @@
   <title>Audio player</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
+  	@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+	  body {
+		  box-sizing: border-box;
+		  font-family: 'Poppins';
+	  }
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'poppins', sans-serif;
     }
-
-    .box-button {
-      position: relative;
-      display: block;
-      padding: 10px;
-      margin: 10px auto;
-      background: #673AB7;
-      width: 100%;
-      max-width: 300px;
-      border-radius: 30px;
-    }
-
-    .controlls_btns {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .controlls_btns button {
-      height: 50px;
-      width: 50px;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      margin: 0 0.5em;
-      background: none;
-      transition: 0.5s;
-      border-radius: 50%;
-    }
-
-    .controlls_btns button i {
-      font-size: 1.3em;
-    }
-
-    .controlls_btns button i {
-      color: #fff;
-    }
-
-    .controlls_btns button:nth-child(2) {
-      border-radius: 50%;
-      box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2), inset -5px -5px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
-    }
+.box-saldo {
+    position: relative;
+    padding: 3px;
+    background-size: 100%;
+    background-image: url(https://kolomilmu.com/experiment/images/1.png);
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    border-radius: 14px 14px 14px 14px;
+}
+.top-inbox {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 10px;
+    margin: 10px 0 5px 0;
+}
+.top-inbox .top-title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    gap: 5px;
+}
+.top-inbox .top-title h3 {
+    color: #ffffff;
+    display: inline-block;
+    letter-spacing: 1px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 600;
+    font-size: 13px;
+    overflow: hidden;
+}
+.box-button {
+    position: relative;
+    padding: 0;
+    margin: 5px 0;
+    margin-right: 15%;
+    background: #1fafa7;
+    max-width: 200px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    gap: 5px;
+    border-radius: 30px;
+}
+.controlls_btns {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.controlls_btns button {
+    height: 30px;
+    width: 30px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin: 0 0.5em;
+    background: none;
+    transition: 0.5s;
+    border-radius: 50%;
+}
+.controlls_btns button i {
+    font-size: 1em;
+}
+.controlls_btns button i {
+    color: #fff;
+}
+.controlls_btns button:nth-child(2) {
+    border-radius: 50%;
+    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2), inset -5px -5px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
+}
+.box-saldo .saldo {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    margin-left: 10px;
+    margin-top: 18px;
+}
+.box-saldo .description {
+    position: relative;
+    display: block;
+    margin: 0;
+    margin-left: 10px;
+    font-size: 10px;
+    font-weight: 400;
+    color: #ffffff;
+}
+.bottom-inbox {
+    position: relative;
+    display: block;
+    margin: 10px;
+    padding: 0;
+    word-spacing: 7px;
+}
+.bottom-inbox .bottom-button {
+    position: relative;
+    margin: 0;
+    padding: 2px 10px 2px 10px;
+    font-size: 10px;
+    background: transparent;
+    color: #fff;
+    border: solid 2px #20afa7;
+    border-radius: 8px;
+    outline: none;
+}
+.box-music {
+    display: none!important;
+}
   </style>
 </head>
 
@@ -83,47 +187,39 @@
       <button class="bottom-button">Transfer</button>
     </div>
   </div>
-  <div class="box-button">
-    <div class="controlls_btns">
-      <button id="backward_btn"><i class="fa fa-step-backward" aria-hidden="true"></i></button>
-      <button id="play_pause_btn"><i class="fa fa-play" aria-hidden="true"></i></button>
-      <button id="forward_btn"><i class="fa fa-step-forward" aria-hidden="true"></i></button>
-    </div>
-  </div>
   <div class="box-music"></div>
   <script>
     let All_song = [
    {
      name: "Jalan Terbaik",
      path: "music/1.mp3",
-     img: "images/1.jpg",
-     singer: "NoCopyrightSounds [NCS]"
+     img: "images/1.png"
    },
    {
      name: "Aku Masih Sayang",
      path: "music/2.mp3",
-     img: "images/2.jpg",
-     singer: "NoCopyrightSounds"
+     img: "images/2.png"
    },
    {
      name: "Jangan Pernah Berubah",
      path: "music/3.mp3",
-     img: "images/3.jpg",
-     singer: "Audio Library"
+     img: "images/3.png"
    },
    {
      name: "PUSPA",
      path: "music/4.mp3",
-     img: "images/4.jpg",
-     singer: "imshahed"
+     img: "images/4.png"
    },
       ];
+
+      // General Url
+      let url_upload = "https://kolomilmu.com/experiment/";
       // box music
       let boxmusic = document.querySelector('.box-music');
       let htmlbox = "";
       for (let i = 0; i < All_song.length; i++) {
         htmlbox += '<div class="song">';
-        htmlbox += '<audio src="https://kolomilmu.com/experiment/' + All_song[i].path + '" data-img="' + All_song[i].img + '" class="play-music"></audio>';
+        htmlbox += '<audio src="' + url_upload + All_song[i].path + '" class="play-music"></audio>';
         htmlbox += '</div>';
       }
       boxmusic.innerHTML = htmlbox;
@@ -141,10 +237,13 @@
 
       /*play function*/
       function play_song(){
+        var css_saldo = document.querySelector(".box-saldo");
+        var image = 'background-image: url('+url_upload+All_song[index_no].img+')';
         song[index_no].play();
         is_song_played = true;
         song_status = true;
         play_pause_btn.innerHTML = '<i class="fa fa-pause" aria-hidden="true"></i>';
+        css_saldo.setAttribute("style",image)
       }
 
       /*pause song*/
