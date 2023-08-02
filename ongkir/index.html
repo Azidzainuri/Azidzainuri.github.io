@@ -88,8 +88,49 @@
       </div>
     </div>
     <script>
-      var database = "https://script.google.com/macros/s/AKfycby3llgudomHXAUY8LXekBhfzFjq_xS2dMUB-ItGd3nnww9RrcW8UmPkttXcXKWZgEPo/exec";
-      
+      var urlDatabase = "https://script.google.com/macros/s/AKfycby3llgudomHXAUY8LXekBhfzFjq_xS2dMUB-ItGd3nnww9RrcW8UmPkttXcXKWZgEPo/exec";
+      var urldaerah = urlDatabase + "?action=readdaerah";
+      var urlongkir = urlDatabase + "?action=readongkir";
+      function itemformat(value){
+         mydata = value.toLowerCase();
+         mydata = mydata.replace(/[^\w ]+/g, "").replace(/ +/g, "-");
+         return mydata;
+      }
+      $.ajax({
+        crossDomain: true,
+        url: urldaerah ,
+        method: "GET",
+        dataType: "jsonp",
+        beforeSend: function(){
+          $("#asal").html("<option value='default'>Loading ...</option>");
+        },
+        success: function (json) {
+           var data = json.records;
+           console.log(data);
+        }
+      })
+      $.ajax({
+        crossDomain: true,
+        url: urlongkir ,
+        method: "GET",
+        dataType: "jsonp",
+        beforeSend: function(){
+          $("#daerah-tujuan").html("<option value='default'>Loading ...</option>");
+        },
+        success: function (json) {
+           var dataongkir = [];
+           var data = json.records;
+           dataongkir = data.filter(function(item) {
+              return itemformat(item.asal) == itemformat("Tambak Boyo);
+           });
+           var html = "<option value='default'>Pilih Daerah Tujuan</option>";
+           for (i = 0; i < dataongkir.length; i++){
+             html += "<option value='"+dataongkir[i].harga+"'>"+dataongkir[i].tujuan+"</option>";
+           }
+           $("#daerah-tujuan").html(html);
+        }
+      })
+   });
     </script>
   </body>
 </html>
