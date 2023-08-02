@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <title>Ongkos Kirim</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+	  body {
+		  box-sizing: border-box;
+		  font-family: 'Roboto';
+	  }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'roboto', sans-serif;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="data-ongkir">
+      <form class="form-ongkir">
+        <div class="data-form">
+          <input id="asal" placeholder="Asal Daerah" type="text">
+        </div>
+        <div class="data-form">
+          <input id="tujuan" placeholder="Daerah Tujuan" type="text">
+        </div>
+      </form>
+      <button class="data-button" id="cek-ongkir">Lihat Ongkir</button>
+      <div class="output-ongkir">
+        <p class="ongkir-html">Ongkir dari Daearah A ke Daerah B adalah Rp50.000</p>
+      </div>
+    </div>
+    <script>
+      var database = "https://script.google.com/macros/s/AKfycby3llgudomHXAUY8LXekBhfzFjq_xS2dMUB-ItGd3nnww9RrcW8UmPkttXcXKWZgEPo/exec";
+    </script>
+  </body>
+</html>
