@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#001E3C" />
+    <title>qr</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loginPage" class="px-3 py-3 h-full flex justify-center items-center">
+		<div class="w-full flex justify-center items-center">
+
+			<div class="space-y-3 text-center justify-center items-center bg-slate-900 rounded-2xl w-full">
+				<div class="py-1 text-center text-amber-400">Login QRCODE</div>
+				<div id="qr-reader"></div>
+				<div id="qr-reader-results" class="text-center text-slate-500 text-xs">scan by https://qrcode.minhazav.dev</div>
+				<div class="py-1"></div>
+			</div>
+				
+		</div>
+	</div>
+
+    <!-- <script src="//code.tidio.co/xfvcte7ngrb9xzvao06ju2fftiwmi2oq.js" async></script> -->
+	<script src="script.js"></script>
+	<!-- <script src="../assets/app.js"></script> -->
+
+	<script>
+		function docReady(fn) {
+			
+			// see if DOM is already available
+			if (document.readyState === "complete"
+				|| document.readyState === "interactive") {
+				// call on next available tick
+				setTimeout(fn, 1);
+			} else {
+				document.addEventListener("DOMContentLoaded", fn);
+			}
+		}
+
+		docReady(function () {
+
+			var resultContainer = document.getElementById('qr-reader-results');
+			var lastResult, countResults = 0;
+			function onScanSuccess(decodedText, decodedResult) {
+				
+				if (decodedText !== lastResult) {
+					
+
+					++countResults;
+					lastResult = decodedText;
+					// Handle on success condition with the decoded message.
+					// resultContainer.innerHTML = decodedText
+					window.location.href = decodedText
+					console.log(`Scan result ${decodedText}`, decodedResult);
+				}
+			}
+
+			var html5QrcodeScanner = new Html5QrcodeScanner(
+				"qr-reader", { fps: 10, qrbox: 250 });
+			html5QrcodeScanner.render(onScanSuccess);
+		});
+	</script>
+
+</body>
+</html>
