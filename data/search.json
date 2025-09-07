@@ -1,4 +1,4 @@
-[
+{"items":[
     { "provinsi_id": 1, "provinsi_name": "Nusa Tenggara Barat (NTB)", "kabupaten_id": 1, "kabupaten_name": "Mataram", "kecamatan_id": 1, "kecamatan_name": "Mataram" },
     { "provinsi_id": 1, "provinsi_name": "Nusa Tenggara Barat (NTB)", "kabupaten_id": 1, "kabupaten_name": "Mataram", "kecamatan_id": 2, "kecamatan_name": "Ampenan" },
     { "provinsi_id": 1, "provinsi_name": "Nusa Tenggara Barat (NTB)", "kabupaten_id": 1, "kabupaten_name": "Mataram", "kecamatan_id": 3, "kecamatan_name": "Cakranegara" },
@@ -7127,3 +7127,4 @@
     { "provinsi_id": 34, "provinsi_name": "Sulawesi Barat", "kabupaten_id": 688, "kabupaten_name": "Mamuju Utara", "kecamatan_id": 7102, "kecamatan_name": "Bulu Taba" },
     { "provinsi_id": 34, "provinsi_name": "Sulawesi Barat", "kabupaten_id": 688, "kabupaten_name": "Mamuju Utara", "kecamatan_id": 7103, "kecamatan_name": "Bambaira" },
 ]
+}
