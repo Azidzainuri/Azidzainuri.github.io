@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta content="#010916" name="theme-color">
+    <meta content="#010916" name="msapplication-navbutton-color">
+  <title>Absensi Siswa</title>
+  <script src="https://unpkg.com/html5-qrcode"></script>
+  <style>
+    body { font-family: Arial; text-align: center; margin-top: 50px; }
+    #reader { width: 300px; margin: auto; }
+  </style>
+</head>
+<body>
+  <h2>Scan QR Code Siswa</h2>
+  <div id="reader"></div>
+  <p id="status"></p>
+
+<script>
+const API_URL = "https://script.google.com/macros/s/AKfycbzD-OLYZPHehCygiCAs4yuK8EHACoVnngw-BPmV2U1mcq0SaR8tZf-MZzO8xAgk6Pzj/exec";
+
+let html5QrCode; // simpan di global biar bisa akses di fungsi lain
+let scanning = false;
+
+function onScanSuccess(qrCodeMessage) {
+  if (scanning) return; // cegah double-scan
+  scanning = true;
+
+  document.getElementById("status").innerText = "🔄 Mengirim data absensi...";
+
+  const idSiswa = encodeURIComponent(qrCodeMessage);
+
+  // hentikan kamera supaya tidak scan terus
+  html5QrCode.stop().then(() => {
+    fetch(`${API_URL}?id=${idSiswa}`)
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("status").innerText = data.message;
+
+        // Tampilkan tombol untuk scan lagi
+        const btn = document.createElement("button");
+        btn.textContent = "Scan Lagi";
+        btn.onclick = startScanner;
+        document.getElementById("status").appendChild(document.createElement("br"));
+        document.getElementById("status").appendChild(btn);
+      })
+      .catch(err => {
+        document.getElementById("status").innerText = "❌ Error: " + err.message;
+      });
+  });
+}
+
+function startScanner() {
+  document.getElementById("status").innerText = "📷 Arahkan kamera ke QR Code...";
+  scanning = false;
+
+  html5QrCode.start(
+    { facingMode: "environment" },
+    { fps: 10, qrbox: 250 },
+    onScanSuccess
+  );
+}
+
+window.onload = () => {
+  html5QrCode = new Html5Qrcode("reader");
+  startScanner();
+};
+</script>
+</body>
+</html>
